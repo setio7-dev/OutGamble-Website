@@ -25,6 +25,51 @@
     src: url("../public/font/Poppins-Light.ttf");
 }
 
+@keyframes bounces {
+    0% {
+        transform: translateY(-10px);
+    }
+    25% {
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    75% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotates {
+    0% {
+        transform: rotate(7deg);
+    }
+    25% {
+        transform: rotate(-7deg);
+    }
+    50% {
+        transform: rotate(7deg);
+    }
+    75% {
+        transform: rotate(-7deg);
+    }
+    100% {
+        transform: rotate(7deg);
+    }
+}
+
+@keyframes autoRotates {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @theme default {
     --font-poppins-light: "poppins-light";
     --font-poppins-regular: "poppins-regular";
@@ -32,5 +77,9 @@
     --font-poppins-semibold: "poppins-semibold";
     --font-poppins-bold: "poppins-bold";
     --color-primary: #07AA4D;
-    --color-gray: #5C5C5C,
+    --color-gray: #5C5C5C;
+    --color-gray-dark: #232323;
+    --animate-bounces: bounces 10s ease-in-out infinite;
+    --animate-rotates: rotates 10s ease-in-out infinite;
+    --animate-autoRotates: autoRotates 14s linear infinite;
 }
