@@ -1,6 +1,13 @@
 import aboutIcon1 from "/image/home/about/icon1.png";
 import aboutIcon2 from "/image/home/about/icon2.png";
 import aboutIcon3 from "/image/home/about/icon3.png";
+import person1 from "/image/home/testimonial/person1.png";
+import person2 from "/image/home/testimonial/person2.png";
+import person3 from "/image/home/testimonial/person3.png";
+import person4 from "/image/home/testimonial/person4.png";
+import person5 from "/image/home/testimonial/person5.png";
+import person6 from "/image/home/testimonial/person6.png";
+import person7 from "/image/home/testimonial/person7.png";
 
 const aboutData = [
     {
@@ -80,4 +87,49 @@ const actionData = [
     },
 ]
 
-export { aboutData, serviceData, actionData }
+const testimonialData = [
+    {
+        id: 1,
+        img: person1,
+        name: "Setio Nugraha",
+        text: "Awalnya cuma iseng main judi online bareng teman, cuma taruhan kecil. Tapi lama-lama keterusan sampai bikin stres dan utang di mana-mana. Waktu nemu Out Gamble, aku ngerasa dapet tempat buat mulai dari nol. Panduan dan motivasi yang dikasih bikin aku sadar kalau masih ada hidup yang lebih berharga dari sekadar menang taruhan."
+    },
+    {
+        id: 2,
+        img: person2,
+        name: "Pandu Tria Adyatama",
+        text: "Awalnya cuma iseng main judi online bareng teman, cuma taruhan kecil. Tapi lama-lama keterusan sampai bikin stres dan utang di mana-mana. Waktu nemu Out Gamble, aku ngerasa dapet tempat buat mulai dari nol. Panduan dan motivasi yang dikasih bikin aku sadar kalau masih ada hidup yang lebih berharga dari sekadar menang taruhan."
+    },
+    {
+        id: 3,
+        img: person3,
+        name: "Muhammad Khadafi",
+        text: "Awalnya cuma iseng main judi online bareng teman, cuma taruhan kecil. Tapi lama-lama keterusan sampai bikin stres dan utang di mana-mana. Waktu nemu Out Gamble, aku ngerasa dapet tempat buat mulai dari nol. Panduan dan motivasi yang dikasih bikin aku sadar kalau masih ada hidup yang lebih berharga dari sekadar menang taruhan."
+    },
+    {
+        id: 4,
+        img: person4,
+        name: "Ashif Bumi Nusantara",
+        text: "Awalnya cuma iseng main judi online bareng teman, cuma taruhan kecil. Tapi lama-lama keterusan sampai bikin stres dan utang di mana-mana. Waktu nemu Out Gamble, aku ngerasa dapet tempat buat mulai dari nol. Panduan dan motivasi yang dikasih bikin aku sadar kalau masih ada hidup yang lebih berharga dari sekadar menang taruhan."
+    },
+    {
+        id: 5,
+        img: person5,
+        name: "Ciko Lakocik",
+        text: "Awalnya cuma iseng main judi online bareng teman, cuma taruhan kecil. Tapi lama-lama keterusan sampai bikin stres dan utang di mana-mana. Waktu nemu Out Gamble, aku ngerasa dapet tempat buat mulai dari nol. Panduan dan motivasi yang dikasih bikin aku sadar kalau masih ada hidup yang lebih berharga dari sekadar menang taruhan."
+    },
+    {
+        id: 6,
+        img: person6,
+        name: "Ganesha Hatibi",
+        text: "Awalnya cuma iseng main judi online bareng teman, cuma taruhan kecil. Tapi lama-lama keterusan sampai bikin stres dan utang di mana-mana. Waktu nemu Out Gamble, aku ngerasa dapet tempat buat mulai dari nol. Panduan dan motivasi yang dikasih bikin aku sadar kalau masih ada hidup yang lebih berharga dari sekadar menang taruhan."
+    },
+    {
+        id: 7,
+        img: person7,
+        name: "Tyan Es Kul Kul",
+        text: "Awalnya cuma iseng main judi online bareng teman, cuma taruhan kecil. Tapi lama-lama keterusan sampai bikin stres dan utang di mana-mana. Waktu nemu Out Gamble, aku ngerasa dapet tempat buat mulai dari nol. Panduan dan motivasi yang dikasih bikin aku sadar kalau masih ada hidup yang lebih berharga dari sekadar menang taruhan."
+    },
+];
+
+export { aboutData, serviceData, actionData, testimonialData }

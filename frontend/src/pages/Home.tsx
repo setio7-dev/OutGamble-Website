@@ -6,6 +6,9 @@ import AOS from "aos";
 import About from '../components/home/About';
 import Service from '../components/home/Service';
 import Action from '../components/home/Action';
+import Community from '../components/home/Community';
+import Bot from '../components/home/Bot';
+import Testimonial from '../components/home/Testimonial';
 
 export default function Home() {
     useEffect(() => {
@@ -19,6 +22,9 @@ export default function Home() {
       <About/>
       <Service/>
       <Action/>
+      <Community/>
+      <Bot/>
+      <Testimonial/>
     </div>
   )
 }

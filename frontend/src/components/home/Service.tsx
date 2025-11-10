@@ -18,7 +18,7 @@ export default function Service() {
         <div className="flex justify-between w-full items-center mt-4 gap-6 cursor-pointer">
             {serviceData.map((item, index) => (
                 <AnimationDiv effect="fade-up" delay={item.id * 300} className="bg-white hover:bg-primary duration-500 border-2 border-white group w-full rounded-lg p-6 flex flex-col gap-6" key={index}>
-                    <svg viewBox={`${item.id == 1 ? '0 0 77 77' : '0 0 88 88'}`} className="bg-primary group-hover:bg-white duration-500 w-32 h-auto p-6 rounded-lg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox={`${item.id == 1 ? '0 0 77 77' : '0 0 88 88'}`} className="bg-primary group-hover:bg-white duration-500 w-28 h-auto p-6 rounded-lg" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d={item.img} className="fill-white group-hover:fill-primary duration-500"/>
                     </svg>
                     <div className="flex flex-col gap-2">

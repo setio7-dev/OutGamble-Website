@@ -6,13 +6,13 @@ export default function UseActionScroll() {
     const [data, setData] = useState(actionData);
     useEffect(() => {
         const scrollInterval = setInterval(() => {
-        setCurrentIndex((prev) => {
-          const next = prev + 1;
-          if (next >= data.length * 120) {
-            setData((prevData) => [...prevData, ...actionData]);
-          }
-          return next;
-        });
+          setCurrentIndex((prev) => {
+            const next = prev + 1;
+            if (next >= data.length * 120) {
+              setData((prevData) => [...prevData, ...actionData]);
+            }
+            return next;
+          });
         }, 20);
 
         return () => clearInterval(scrollInterval);

@@ -15,7 +15,7 @@ export default function Welcome() {
       <SafeAreaView classNameParent={'bg-white rounded-b-[120px] h-screen'} classNameChild={'flex-col justify-end h-full'}>
         <div className="w-full flex gap-6 flex-col">
           <AnimationDiv className="relative w-full" effect="fade-up">
-              <img src={circle1} alt="" className="w-22 h-auto animate-bounces absolute left-14 -top-2" />
+              <img src={circle1} alt="" className="w-22 h-auto animate-autoRotates absolute left-14 -top-2" />
               <h1 className="font-poppins-semibold text-[42px] text-center">Memberdayakan Generasi <br />Cerdas untuk <span className="text-primary">Menjauhi Judi Online</span></h1>
               <img src={textLine} alt="" className="w-[46px] animate-rotates h-auto absolute right-28 bottom-0" />
           </AnimationDiv>
@@ -45,7 +45,7 @@ export default function Welcome() {
                           <h2 className="text-black font-poppins-semibold text-[32px]">5+ Tahun</h2>
                           <p className="text-black text-[16px] font-poppins-medium">Pengalaman Edukasi Digital</p>
                       </div>
-                      <img src={circle2} className="w-[140px] animate-bounces mt-10 h-auto" alt="" />
+                      <img src={circle2} className="w-[140px] animate-autoRotates mt-10 h-auto" alt="" />
                   </div>
               </AnimationDiv>
           </div>
