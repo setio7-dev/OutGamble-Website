@@ -12,7 +12,7 @@ import AnimationDiv from "../../ui/AnimationDiv";
 export default function Welcome() {
   return (
     <div className='flex justify-center items-center h-screen bg-black overflow-y-hidden'>
-      <SafeAreaView classNameParent={'bg-white rounded-b-[120px] h-screen'} classNameChild={'flex-col justify-end h-full'}>
+      <SafeAreaView classNameParent={'bg-white rounded-b-[120px] w-full h-full'} paddingY={0} classNameChild={'flex-col justify-end h-full'}>
         <div className="w-full flex gap-6 flex-col">
           <AnimationDiv className="relative w-full" effect="fade-up">
               <img src={circle1} alt="" className="w-22 h-auto animate-autoRotates absolute left-14 -top-2" />

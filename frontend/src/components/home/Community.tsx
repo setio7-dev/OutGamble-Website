@@ -7,7 +7,7 @@ import AnimationDiv from "../../ui/AnimationDiv";
 
 export default function Community() {
   return (
-    <SafeAreaView classNameParent={'h-[66vh]'} classNameChild={'flex-row justify-between gap-12'}>
+    <SafeAreaView classNameChild={'flex-row justify-between gap-12'}>
         <img src={community} className="w-140 h-auto" alt="" data-aos="fade-right" data-aos-duration="1000" />
         <AnimationDiv effect="fade-left" duration={1000} className="flex flex-col gap-6">
             <img src={tag} className="w-40 h-auto" alt="" />

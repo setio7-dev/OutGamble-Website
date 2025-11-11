@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import aboutIcon1 from "/image/home/about/icon1.png";
 import aboutIcon2 from "/image/home/about/icon2.png";
 import aboutIcon3 from "/image/home/about/icon3.png";
@@ -11,6 +12,18 @@ import person7 from "/image/home/testimonial/person7.png";
 import imageNews1 from "/image/home/news/image1.png";
 import imageNews2 from "/image/home/news/image2.png";
 import imageNews3 from "/image/home/news/image3.png";
+import educationImage1 from "/image/home/education/post1.png";
+import educationImage2 from "/image/home/education/post2.png";
+import educationImage3 from "/image/home/education/post3.png";
+import educationImage4 from "/image/home/education/post4.png";
+import educationImage5 from "/image/home/education/post5.png";
+import educationImage6 from "/image/home/education/post6.png";
+import educationProfile1 from "/image/home/education/profile1.png";
+import educationProfile2 from "/image/home/education/profile2.png";
+import educationProfile3 from "/image/home/education/profile3.png";
+import educationProfile4 from "/image/home/education/profile4.png";
+import educationProfile5 from "/image/home/education/profile5.png";
+import educationProfile6 from "/image/home/education/profile6.png";
 
 const aboutData = [
     {
@@ -180,4 +193,160 @@ const newsData = [
     },
 ];
 
-export { aboutData, serviceData, actionData, testimonialData, tipsData, newsData }
+const statisticData: Record<any, any> = {
+  2020: [
+    { name: "Jan", pria: 120, wanita: 80, remaja: 40 },
+    { name: "Feb", pria: 130, wanita: 90, remaja: 50 },
+    { name: "Mar", pria: 140, wanita: 100, remaja: 60 },
+    { name: "Apr", pria: 150, wanita: 110, remaja: 70 },
+    { name: "Mei", pria: 160, wanita: 120, remaja: 80 },
+    { name: "Jun", pria: 170, wanita: 130, remaja: 90 },
+    { name: "Jul", pria: 180, wanita: 140, remaja: 100 },
+    { name: "Aug", pria: 190, wanita: 150, remaja: 110 },
+    { name: "Sep", pria: 200, wanita: 160, remaja: 120 },
+    { name: "Oct", pria: 210, wanita: 170, remaja: 130 },
+    { name: "Nov", pria: 220, wanita: 180, remaja: 140 },
+    { name: "Dec", pria: 230, wanita: 190, remaja: 150 },
+  ],
+  2021: [
+    { name: "Jan", pria: 240, wanita: 200, remaja: 160 },
+    { name: "Feb", pria: 250, wanita: 210, remaja: 170 },
+    { name: "Mar", pria: 260, wanita: 220, remaja: 180 },
+    { name: "Apr", pria: 270, wanita: 230, remaja: 190 },
+    { name: "Mei", pria: 280, wanita: 240, remaja: 200 },
+    { name: "Jun", pria: 290, wanita: 250, remaja: 210 },
+    { name: "Jul", pria: 300, wanita: 260, remaja: 220 },
+    { name: "Aug", pria: 310, wanita: 270, remaja: 230 },
+    { name: "Sep", pria: 320, wanita: 280, remaja: 240 },
+    { name: "Oct", pria: 330, wanita: 290, remaja: 250 },
+    { name: "Nov", pria: 340, wanita: 300, remaja: 260 },
+    { name: "Dec", pria: 350, wanita: 310, remaja: 270 },
+  ],
+  2022: [
+    { name: "Jan", pria: 360, wanita: 320, remaja: 280 },
+    { name: "Feb", pria: 370, wanita: 330, remaja: 290 },
+    { name: "Mar", pria: 380, wanita: 340, remaja: 300 },
+    { name: "Apr", pria: 390, wanita: 350, remaja: 310 },
+    { name: "Mei", pria: 400, wanita: 360, remaja: 320 },
+    { name: "Jun", pria: 410, wanita: 370, remaja: 330 },
+    { name: "Jul", pria: 420, wanita: 380, remaja: 340 },
+    { name: "Aug", pria: 430, wanita: 390, remaja: 350 },
+    { name: "Sep", pria: 440, wanita: 400, remaja: 360 },
+    { name: "Oct", pria: 450, wanita: 410, remaja: 370 },
+    { name: "Nov", pria: 460, wanita: 420, remaja: 380 },
+    { name: "Dec", pria: 470, wanita: 430, remaja: 390 },
+  ],
+  2023: [
+    { name: "Jan", pria: 480, wanita: 440, remaja: 400 },
+    { name: "Feb", pria: 490, wanita: 450, remaja: 410 },
+    { name: "Mar", pria: 500, wanita: 460, remaja: 420 },
+    { name: "Apr", pria: 510, wanita: 470, remaja: 430 },
+    { name: "Mei", pria: 520, wanita: 480, remaja: 440 },
+    { name: "Jun", pria: 530, wanita: 490, remaja: 450 },
+    { name: "Jul", pria: 540, wanita: 500, remaja: 460 },
+    { name: "Aug", pria: 550, wanita: 510, remaja: 470 },
+    { name: "Sep", pria: 560, wanita: 520, remaja: 480 },
+    { name: "Oct", pria: 570, wanita: 530, remaja: 490 },
+    { name: "Nov", pria: 580, wanita: 540, remaja: 500 },
+    { name: "Dec", pria: 590, wanita: 550, remaja: 510 },
+  ],
+  2024: [
+    { name: "Jan", pria: 600, wanita: 560, remaja: 520 },
+    { name: "Feb", pria: 610, wanita: 570, remaja: 530 },
+    { name: "Mar", pria: 620, wanita: 580, remaja: 540 },
+    { name: "Apr", pria: 630, wanita: 590, remaja: 550 },
+    { name: "Mei", pria: 640, wanita: 600, remaja: 560 },
+    { name: "Jun", pria: 650, wanita: 610, remaja: 570 },
+    { name: "Jul", pria: 660, wanita: 620, remaja: 580 },
+    { name: "Aug", pria: 670, wanita: 630, remaja: 590 },
+    { name: "Sep", pria: 680, wanita: 640, remaja: 600 },
+    { name: "Oct", pria: 690, wanita: 650, remaja: 610 },
+    { name: "Nov", pria: 700, wanita: 660, remaja: 620 },
+    { name: "Dec", pria: 710, wanita: 670, remaja: 630 },
+  ],
+  2025: [
+    { name: "Jan", pria: 720, wanita: 680, remaja: 640 },
+    { name: "Feb", pria: 730, wanita: 690, remaja: 650 },
+    { name: "Mar", pria: 740, wanita: 700, remaja: 660 },
+    { name: "Apr", pria: 750, wanita: 710, remaja: 670 },
+    { name: "Mei", pria: 760, wanita: 720, remaja: 680 },
+    { name: "Jun", pria: 770, wanita: 730, remaja: 690 },
+    { name: "Jul", pria: 780, wanita: 740, remaja: 700 },
+    { name: "Aug", pria: 790, wanita: 750, remaja: 710 },
+    { name: "Sep", pria: 800, wanita: 760, remaja: 720 },
+    { name: "Oct", pria: 810, wanita: 770, remaja: 730 },
+    { name: "Nov", pria: 820, wanita: 780, remaja: 740 },
+    { name: "Dec", pria: 830, wanita: 790, remaja: 750 },
+  ],
+};
+
+const educationData = [
+    {
+        id: 1,
+        title: "Fakta Mengejutkan di Balik Judi Online",
+        desc: "Penjelasan jujur tentang bagaimana sistem judi online bekerja dan kenapa membuat banyak orang terjebak dalam siklus kerugian.",
+        img: educationImage1,
+        profile: {
+            name: "Pandu Tria Adyatama",
+            img: educationProfile1,
+            date: "15 Desember 2024"
+        }
+    },
+    {
+        id: 2,
+        title: "Dampak Judi Online ke Kesehatan Mental",
+        desc: "Tips praktis untuk remaja agar tidak mudah terpengaruh oleh promosi dan ajakan bermain judi online di media sosial.",
+        img: educationImage2,
+        profile: {
+            name: "Muhammad Khadafi",
+            img: educationProfile2,
+            date: "12 Januari 2025"
+        }
+    },
+    {
+        id: 3,
+        title: "Cara Aman Hindari Judi Online bagi Remaja",
+        desc: "Tips praktis untuk remaja agar tidak mudah terpengaruh oleh promosi dan ajakan bermain judi online di media sosial.",
+        img: educationImage3,
+        profile: {
+            name: "Melia",
+            img: educationProfile3,
+            date: "11 Februari 2025"
+        }
+    },
+    {
+        id: 4,
+        title: "Kisah Mantan Pecandu Judi Online",
+        desc: "Cerita inspiratif dari seseorang yang berhasil lepas dari kecanduan judi dan memulai hidup baru yang lebih sehat dan produktif.",
+        img: educationImage4,
+        profile: {
+            name: "Setio Nugraha",
+            img: educationProfile4,
+            date: "22 April 2025"
+        }
+    },
+    {
+        id: 5,
+        title: "Bahaya Judi Online bagi Keluarga",
+        desc: "Penjelasan tentang bagaimana judi online bisa menghancurkan hubungan keluarga dan cara mencegahnya sejak dini.",
+        img: educationImage5,
+        profile: {
+            name: "Fachri Surya",
+            img: educationProfile5,
+            date: "29 Februari 2025"
+        }
+    },
+    {
+        id: 6,
+        title: "Tips Atur Keuangan agar Terhindar dari Judi Online",
+        desc: "Pelajari cara mengatur keuangan dengan bijak dan disiplin agar terhindar dari godaan serta risiko judi online.",
+        img: educationImage6,
+        profile: {
+            name: "Rendy Fernando",
+            img: educationProfile6,
+            date: "5 Desember 2024"
+        }
+    },
+];
+
+export { aboutData, serviceData, actionData, testimonialData, tipsData, newsData, statisticData, educationData }

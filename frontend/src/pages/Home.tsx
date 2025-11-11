@@ -11,6 +11,8 @@ import Bot from '../components/home/Bot';
 import Testimonial from '../components/home/Testimonial';
 import Tips from '../components/home/Tips';
 import News from '../components/home/News';
+import Statistic from '../components/home/Statistic';
+import Education from '../components/home/Education';
 
 export default function Home() {
     useEffect(() => {
@@ -29,6 +31,8 @@ export default function Home() {
       <Testimonial/>
       <Tips/>
       <News/>
+      <Statistic/>
+      <Education/>
     </div>
   )
 }
