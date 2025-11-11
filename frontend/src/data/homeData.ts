@@ -8,6 +8,9 @@ import person4 from "/image/home/testimonial/person4.png";
 import person5 from "/image/home/testimonial/person5.png";
 import person6 from "/image/home/testimonial/person6.png";
 import person7 from "/image/home/testimonial/person7.png";
+import imageNews1 from "/image/home/news/image1.png";
+import imageNews2 from "/image/home/news/image2.png";
+import imageNews3 from "/image/home/news/image3.png";
 
 const aboutData = [
     {
@@ -132,4 +135,49 @@ const testimonialData = [
     },
 ];
 
-export { aboutData, serviceData, actionData, testimonialData }
+const tipsData = [
+    {
+        id: 1,
+        title: "Langkah 1: Kenali Pemicu",
+        text: "Sadari kapan dan kenapa kamu tergoda berjudi. Setelah tahu penyebabnya, isi waktu luangmu dengan hal yang lebih bermanfaat seperti olahraga, membaca, atau ngobrol dengan teman."
+    },
+    {
+        id: 2,
+        title: "Langkah 2: Batasi Akses",
+        text: "Batasi akses ke situs atau aplikasi yang berisiko. Gunakan pengingat waktu atau blocker agar kamu tetap fokus pada hal positif."
+    },
+    {
+        id: 3,
+        title: "Langkah 3: Cari Dukungan",
+        text: "Kalau mulai merasa kesulitan, mintalah bantuan dari orang terdekat atau komunitas pendukung. Dukungan kecil bisa jadi kekuatan besar untuk memulai hidup baru."
+    },
+];
+
+const newsData = [
+    {
+        id: 1,
+        img: imageNews1,
+        title: "Tingkat Candu Judi Online Seperti Zat Adiktif",
+        desc: "Kementerian Kesehatan Republik Indonesia (Kemenkes) menyatakan...",
+        date: "Kamis 3  Desember, 2025",
+        link: "https://kemkes.go.id/eng/tingkat-candu-judi-online-seperti-zat-adiktif"
+    },
+    {
+        id: 2,
+        img: imageNews2,
+        title: "Kerugian Akibat Judi Online Bisa Capai Rp 1.000T",
+        desc: "Laporan dari Kementerian Komunikasi dan Informatika menyebut bahwa kerugian...",
+        date: "Selasa 5 Februari, 2025",
+        link: "https://joglosemarnews.com/2025/05/jika-tak-diintervensi-dirjen-komdigi-potensi-kerugian-judi-online-capai-rp-1-000-t/"
+    },
+    {
+        id: 3,
+        img: imageNews3,
+        title: "komdigi Kembali Tutup Situs dan Akun Judi",
+        desc: "Kementerian Komunikasi dan Digital (Kemkomdigi) menutup situs dan akun...",
+        date: "Jumat 15 Maret, 2025",
+        link: "https://www.komdigi.go.id/berita/rilis-gpr/detail/lagi-kemkomdigi-takedown-situs-dan-akun-besar-terafiliasi-judol"
+    },
+];
+
+export { aboutData, serviceData, actionData, testimonialData, tipsData, newsData }

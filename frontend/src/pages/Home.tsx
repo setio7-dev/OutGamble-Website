@@ -9,6 +9,8 @@ import Action from '../components/home/Action';
 import Community from '../components/home/Community';
 import Bot from '../components/home/Bot';
 import Testimonial from '../components/home/Testimonial';
+import Tips from '../components/home/Tips';
+import News from '../components/home/News';
 
 export default function Home() {
     useEffect(() => {
@@ -25,6 +27,8 @@ export default function Home() {
       <Community/>
       <Bot/>
       <Testimonial/>
+      <Tips/>
+      <News/>
     </div>
   )
 }
