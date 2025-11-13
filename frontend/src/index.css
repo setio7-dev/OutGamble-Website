@@ -77,9 +77,18 @@
     --font-poppins-semibold: "poppins-semibold";
     --font-poppins-bold: "poppins-bold";
     --color-primary: #07AA4D;
+    --color-secondary: #005625;
     --color-gray: #5C5C5C;
     --color-gray-dark: #232323;
     --animate-bounces: bounces 10s ease-in-out infinite;
     --animate-rotates: rotates 10s ease-in-out infinite;
     --animate-autoRotates: autoRotates 14s linear infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;   
 }

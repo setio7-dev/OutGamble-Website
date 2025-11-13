@@ -13,6 +13,8 @@ import Tips from '../components/home/Tips';
 import News from '../components/home/News';
 import Statistic from '../components/home/Statistic';
 import Education from '../components/home/Education';
+import Ask from '../components/home/Ask';
+import Footer from '../components/Footer';
 
 export default function Home() {
     useEffect(() => {
@@ -33,6 +35,8 @@ export default function Home() {
       <News/>
       <Statistic/>
       <Education/>
+      <Ask/>
+      <Footer/>
     </div>
   )
 }

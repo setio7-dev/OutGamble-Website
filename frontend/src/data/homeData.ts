@@ -274,9 +274,7 @@ const statisticData: Record<any, any> = {
     { name: "Jul", pria: 780, wanita: 740, remaja: 700 },
     { name: "Aug", pria: 790, wanita: 750, remaja: 710 },
     { name: "Sep", pria: 800, wanita: 760, remaja: 720 },
-    { name: "Oct", pria: 810, wanita: 770, remaja: 730 },
-    { name: "Nov", pria: 820, wanita: 780, remaja: 740 },
-    { name: "Dec", pria: 830, wanita: 790, remaja: 750 },
+    { name: "Oct", pria: 810, wanita: 770, remaja: 730 },    
   ],
 };
 
@@ -349,4 +347,27 @@ const educationData = [
     },
 ];
 
-export { aboutData, serviceData, actionData, testimonialData, tipsData, newsData, statisticData, educationData }
+const askData = [
+    {
+        id: 1,
+        title: "Apa Itu Judi Online?",
+        text: "Judi online adalah kegiatan mempertaruhkan uang atau barang berharga melalui permainan berbasis internet dengan harapan mendapatkan keuntungan. Aktivitas ini mencakup berbagai bentuk seperti taruhan olahraga, kasino virtual, dan permainan kartu daring. Meskipun terlihat menghibur, judi online dapat menimbulkan risiko kecanduan dan kerugian finansial yang serius."
+    },
+    {
+        id: 2,
+        title: "Cara Menghindari Judi Online",
+        text: "Untuk menghindari judi online, penting untuk membatasi akses ke situs atau aplikasi yang berisiko dan tidak mengunduh platform perjudian. Isi waktu luang dengan kegiatan positif seperti olahraga, membaca, atau belajar hal baru agar tidak tergoda bermain judi. Selain itu, perkuat kontrol diri dan mintalah dukungan keluarga atau teman jika mulai merasa ingin mencoba berjudi."
+    },
+    {
+        id: 3,
+        title: "Bantuan untuk Korban Judi Online",
+        text: "Bantuan untuk korban judi online dapat berupa konseling psikologis untuk membantu mengatasi kecanduan dan tekanan mental. Dukungan dari keluarga dan teman sangat penting agar korban merasa diterima dan termotivasi untuk berubah. Selain itu, korban juga dapat mencari bantuan melalui lembaga rehabilitasi atau layanan konseling daring yang khusus menangani masalah kecanduan judi."
+    },
+    {
+        id: 4,
+        title: "Edukasi Teman tentang Judi Online",
+        text: "Edukasi teman tentang judi online dapat dilakukan dengan memberikan informasi mengenai risiko dan dampak buruknya, seperti kerugian finansial dan gangguan mental. Ajak teman untuk lebih bijak menggunakan internet dan tidak mudah tergiur dengan janji kemenangan cepat. Dorong mereka untuk mengisi waktu dengan kegiatan positif yang bermanfaat dan membangun masa depan."
+    },
+];
+
+export { aboutData, serviceData, actionData, testimonialData, tipsData, newsData, statisticData, educationData, askData }

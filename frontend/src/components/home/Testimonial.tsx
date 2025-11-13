@@ -11,7 +11,7 @@ export default function Testimonial() {
   
   return (
     <div className="w-full h-auto py-16 mt-12 flex flex-col justify-center gap-30">
-      <SafeAreaView classNameParent={"w-full bg-white rotate-[-3deg]"} classNameChild={"flex-col justify-center"}>
+      <SafeAreaView classNameParent={"w-full bg-white rotate-[-3deg]"} paddingY={16} classNameChild={"flex-col justify-center"}>
         <div className="">
           <div className="overflow-x-hidden w-full">
             <div className="flex items-center gap-8 justify-start py-2 duration-100 w-full" style={{ transform: `translateX(-${currentIndex}px)` }}>
