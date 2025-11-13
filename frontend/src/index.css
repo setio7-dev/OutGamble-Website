@@ -70,6 +70,21 @@
     }
 }
 
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1.5);
+  }
+}
+
+.animate-wave1 { animation: wave 1s ease-in-out infinite; animation-delay: 0s; }
+.animate-wave2 { animation: wave 1s ease-in-out infinite; animation-delay: 0.1s; }
+.animate-wave3 { animation: wave 1s ease-in-out infinite; animation-delay: 0.2s; }
+.animate-wave4 { animation: wave 1s ease-in-out infinite; animation-delay: 0.3s; }
+.animate-wave5 { animation: wave 1s ease-in-out infinite; animation-delay: 0.4s; }
+
 @theme default {
     --font-poppins-light: "poppins-light";
     --font-poppins-regular: "poppins-regular";

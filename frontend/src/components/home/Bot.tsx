@@ -14,7 +14,7 @@ export default function Bot() {
         <AnimationDiv effect="fade-left" className="flex flex-col gap-6 w-[720px]">
             <h1 className="font-poppins-semibold text-white text-[40px]"><span className="text-primary">Anti-Gambling</span> Assistant</h1>
             <p className="text-[16px] font-poppins-regular text-white text-justify">OG-Bot adalah chatbot cerdas yang siap menemanimu kapan saja untuk memahami dan melawan bahaya judi online. Cukup dengan ngobrol seperti biasa, Masbro akan memberikan informasi, saran, dan edukasi seputar cara menghindari kecanduan judi digital dengan cara yang ringan dan mudah dipahami. Cocok banget buat kamu yang ingin belajar dengan santai tapi tetap bermanfaat.</p>
-            <PrimaryButton Text="Chat Sekarang" Type="primary"/>
+            <PrimaryButton Text="Chat Sekarang" Type="primary" LinkTo="/chatbot"/>
         </AnimationDiv>
     </SafeAreaView>
   )
