@@ -11,14 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('communities', function (Blueprint $table) {
+        Schema::create('online_reports', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('image_thumbnail');
-            $table->text('image_logo');
+            $table->bigInteger("user_id")->unsigned();
+            $table->text('url_link');
+            $table->string('category');
+            $table->string('address');
             $table->text('description');
-            $table->text('link');
+            $table->text('proof');
+            $table->string('contact');
             $table->timestamps();
+
+            $table->foreign('user_id')->references("id")->on("users")->onDelete("CASCADE");
         });
     }
 
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('communities');
+        Schema::dropIfExists('online_reports');
     }
 };

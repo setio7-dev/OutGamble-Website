@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Community;
+use App\Models\OnlineReport;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class CommunityController extends Controller
+class OnlineReportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +18,7 @@ class CommunityController extends Controller
         try {
             return response()->json([
                 'message' => 'Get data successfully',
-                "data" => Community::all()
+                'data' => OnlineReport::with('user')->get()
             ], 200);
         } catch(Exception $e) {
             return response()->json([
@@ -41,24 +42,25 @@ class CommunityController extends Controller
     {
         //
         try {
-            $data = new Community();
-            $data->name = $request->name;
-
-            $pathThumbnail = $request->file('image_thumbnail')->store('community', 'public');
-            $data->image_thumbnail = $pathThumbnail;
-
-            $pathLogo = $request->file('image_logo')->store('community', 'public');
-            $data->image_logo = $pathLogo;
-
+            $user = Auth::user();
+            $data = new OnlineReport();
+            $data->user_id = $user->id;
+            $data->url_link = $request->url_link;
+            $data->category = $request->category;
+            $data->address = $request->address;
             $data->description = $request->description;
-            $data->link = $request->link;
+
+            $path = $request->file("proof")->store("report", "public");
+            $data->proof = $path;
+
+            $data->contact = $request->contact;
             $data->save();
+            $data->load('user');
 
             return response()->json([
-                'message' => 'Create data successfully',
+                'message' => 'Berhasil membuat laporan!',
                 'data' => $data
             ], 201);
-
         } catch(Exception $e) {
             return response()->json([
                 'message' => $e->getMessage()
@@ -75,8 +77,8 @@ class CommunityController extends Controller
         try {
             return response()->json([
                 'message' => 'Get data successfully',
-                'data' => Community::find($id)->get()
-            ], 200);
+                'data' => OnlineReport::with('user')->find($id)
+            ], 201);
         } catch(Exception $e) {
             return response()->json([
                 'message' => $e->getMessage()
@@ -87,7 +89,7 @@ class CommunityController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request, $id)
+    public function edit(OnlineReport $onlineReport)
     {
         //
     }
@@ -99,24 +101,23 @@ class CommunityController extends Controller
     {
         //
         try {
-            $data = new Community();
-            $data->name = $request->name;
-
-            $pathThumbnail = $request->file('image_thumbnail')->store('community', 'public');
-            $data->image_thumbnail = $pathThumbnail;
-
-            $pathLogo = $request->file('image_logo')->store('community', 'public');
-            $data->image_logo = $pathLogo;
-
+            $data = OnlineReport::find($id);
+            $data->url_link = $request->url_link;
+            $data->category = $request->category;
+            $data->address = $request->address;
             $data->description = $request->description;
-            $data->link = $request->link;
+
+            $path = $request->file("proof")->store("report", "public");
+            $data->proof = $path;
+
+            $data->contact = $request->contact;
             $data->save();
+            $data->load('user');
 
             return response()->json([
                 'message' => 'Update data successfully',
                 'data' => $data
             ], 201);
-
         } catch(Exception $e) {
             return response()->json([
                 'message' => $e->getMessage()
@@ -131,7 +132,7 @@ class CommunityController extends Controller
     {
         //
         try {
-            $data = Community::find($id);
+            $data = OnlineReport::find($id);
             $data->delete();
             $data->save();
 
