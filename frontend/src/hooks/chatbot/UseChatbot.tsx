@@ -94,6 +94,14 @@ export default function UseChatbot() {
     }, []);
 
     const startListening = () => {
+        if (isLoading) {
+            ModernAlert({
+                status: 'error',
+                message: "Tunggu Sebentar..."
+            });
+            return;
+        }
+
         if (recognition) {
             (recognition as any).start();
             setIsListening(true);
@@ -105,6 +113,14 @@ export default function UseChatbot() {
 
     const handleMessage = async (suggest: string) => {
         try {
+            if (isLoading) {
+                ModernAlert({
+                    status: 'error',
+                    message: "Tunggu Sebentar..."
+                });
+                return;
+            }
+            
             setIsLoading(true);
             setMessage((prev) => {
                 const newUser = {
@@ -165,6 +181,7 @@ export default function UseChatbot() {
 
                 return [...prev, newUser];
             });
+            
             setIsLoading(false);
         } catch (error) {
             ModernAlert({
