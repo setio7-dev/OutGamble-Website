@@ -12,7 +12,7 @@ import ReactMarkdown from "react-markdown";
 import UseChatbot from '../hooks/chatbot/UseChatbot';
 
 export default function Chatbot() {
-    const { displayedText, message, userMessage, setUserMessage, isLoading, handleMessage, startListening, isListening } = UseChatbot();
+    const { displayedText, message, userMessage, setUserMessage, isLoading, handleMessage, startListening, isListening, chatRef } = UseChatbot();
   return (
     <SafeAreaView classNameParent={'h-[100vh]'} paddingY={28} classNameChild={'justify-start flex-col relative'}>
         {isListening && (
@@ -44,7 +44,7 @@ export default function Chatbot() {
             <div className=""></div>
         </div>
         {message.length > 0 ? (
-            <div className="max-h-[70vh] no-scrollbar overflow-y-auto pb-12 w-full">
+            <div ref={chatRef} className="max-h-[70vh] no-scrollbar overflow-y-auto pb-12 w-full">
                 <div className="flex flex-col gap-10 w-full">
                     {message.map((item, index) => (
                         <div className={`flex flex-col gap-4 w-full ${item.user == "bot" ? 'items-start' : 'items-end'}`} key={index}>
@@ -56,7 +56,7 @@ export default function Chatbot() {
                             ) : (
                                 <p className='font-poppins-medium leading-7 text-justify text-white text-[14px]'>
                                     <ReactMarkdown>
-                                        {displayedText}
+                                        {displayedText(item.message, index)}
                                     </ReactMarkdown>
                                 </p>
                             )}

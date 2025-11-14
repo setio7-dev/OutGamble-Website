@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GoogleGenAI } from "@google/genai";
 import AOS from 'aos';
 import { ModernAlert } from "../../ui/ModernAlert";
@@ -9,83 +10,97 @@ export default function UseChatbot() {
     const [message, setMessage] = useState<chatbotMessage[]>([]);
     const [userMessage, setUserMessage] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [displayedText, setDisplayedText] = useState<string>("");
+    const displayedText = (text: string, index: number) => {
+        const isLastBot =
+            message.length - 1 === index && message[index].user === "bot";
+
+        return isLastBot ? typedText : text;
+    };
+    const chatRef = useRef<HTMLDivElement>(null);
     const [isListening, setIsListening] = useState<boolean>(false);
     const [recognition, setRecognition] = useState(null);
+    const speechTextRef = useRef("");
+    const [typedText, setTypedText] = useState("");
 
+
+    const handleBotChat = (msg: chatbotMessage) => {
+        if (!msg || msg.user !== "bot") return;
+        let i = 0;
+        setTypedText("");
+        const interval = setInterval(() => {
+            i++;
+            setTypedText(msg.message.slice(0, i));
+
+            if (i > msg.message.length) clearInterval(interval);
+        }, 10);
+
+        return () => clearInterval(interval);
+    };
+
+    const handleSpeech = () => {
+        try {
+            const speech = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+            if (!speech) {
+                ModernAlert({
+                    status: 'error',
+                    message: 'Browser Anda Tidak Tersedia Fitur Speech',
+                    isLoading: false
+                });
+            }
+
+            if (speech) {
+                const recog = new speech();
+                recog.lang = "id-ID";
+                recog.continuous = false;
+                recog.interimResults = true;
+
+                recog.onresult = (event: any) => {
+                    let transcript = "";
+                    for (let i = event.resultIndex; i < event.results.length; ++i) {
+                        transcript += event.results[i][0].transcript;
+                    }
+                    speechTextRef.current = transcript;
+                };
+
+                recog.onerror = (event: any) => {
+                    console.error("Speech error:", event.error);
+                };
+
+                recog.onend = () => {
+                    setIsListening(false);
+                    handleMessage(speechTextRef.current);
+                };
+
+                setRecognition(recog);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     useEffect(() => {
-        const handleBotChat = () => {
-            if (message.length === 0) return;
-            const lastMsg = message[message.length - 1];
-
-            if (lastMsg.user === "bot") {
-                let i = 0;
-                const interval = setInterval(() => {
-                    setDisplayedText(lastMsg.message.slice(0, i));
-                    i++;
-                    if (i > lastMsg.message.length) clearInterval(interval);
-                }, 10);
-                return () => clearInterval(interval);
-            }
+        if (chatRef.current) {
+            chatRef.current.scrollTop = chatRef.current.scrollHeight;
         }
+    }, [message, isLoading]);
 
-        const handleSpeech = () => {
-            try {
-                const speech = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-                if (!speech) {
-                    ModernAlert({
-                        status: 'error',
-                        message: 'Browser Anda Tidak Tersedia Fitur Speech',
-                        isLoading: false
-                    });
-                }
-
-                if (speech) {
-                    const recog = new speech();
-                    recog.lang = "id-ID";
-                    recog.continuous = false;
-                    recog.continuous = true;
-                    recog.interimResults = true;
-
-                    recog.onresult = (event: any) => {
-                        let transcript = "";
-                        for (let i = event.resultIndex; i < event.results.length; ++i) {
-                            transcript += event.results[i][0].transcript;
-                        }
-                        setUserMessage(transcript);
-                    };
-
-                    recog.onerror = (event: any) => {
-                        console.error("Speech error:", event.error);
-                    };
-
-                    recog.onend = () => {
-                      setIsListening(false);
-                      if (userMessage.trim() !== "") {
-                        handleMessage(userMessage);
-                      }
-                    };
-
-                    setRecognition(recog);
-                }
-            } catch (error) {
-                console.error(error);
-            }
-        }
-
-        handleBotChat();
-        handleSpeech();
+    useEffect(() => {
+        const last = message[message.length - 1];
+        if (last) handleBotChat(last);
     }, [message]);
 
+    useEffect(() => {
+        handleSpeech();
+    }, []);
+
     const startListening = () => {
-      if (recognition) {
-        (recognition as any).start();
-        setIsListening(true);
-        setUserMessage("");
-      } else {
-        alert("Browser kamu belum mendukung Speech Recognition 😢");
-      }
+        if (recognition) {
+            (recognition as any).start();
+            setIsListening(true);
+            setUserMessage("");
+        } else {
+            alert("Browser kamu belum mendukung Speech Recognition 😢");
+        }
     };
 
     const handleMessage = async (suggest: string) => {
@@ -121,7 +136,7 @@ export default function UseChatbot() {
                 Kamu adalah bagian resmi dari situs edukasi "Out Gamble" yang memiliki misi untuk meningkatkan kesadaran masyarakat terhadap bahaya judi.
             `
             const response = await ai.models.generateContent({
-                model: "gemini-2.5-flash",
+                model: "gemini-2.0-flash",
                 contents: [
                     {
                         role: 'model',
@@ -152,6 +167,11 @@ export default function UseChatbot() {
             });
             setIsLoading(false);
         } catch (error) {
+            ModernAlert({
+                status: 'error',
+                message: "Server Sedang Sibuk",
+                typeLink: 'Reload'
+            });
             console.error(error);
         }
     }
@@ -160,5 +180,5 @@ export default function UseChatbot() {
         AOS.init();
     }, []);
 
-    return { isLoading, userMessage, setUserMessage, handleMessage, message, displayedText, startListening, isListening }
+    return { isLoading, userMessage, setUserMessage, handleMessage, message, displayedText, startListening, isListening, chatRef }
 }

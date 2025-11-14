@@ -9,7 +9,7 @@ export default function Bot() {
     <SafeAreaView classNameChild={"justify-between flex-row"}>
         <AnimationDiv effect="fade-right" className="relative">
             <img src={bot} className="w-90 absolute -translate-1/2 top-1/2 left-1/2 animate-bounces" alt="" />
-            <img src={botBg} className="w-76 h-auto" alt="" />
+            <img src={botBg} className="w-70 h-auto" alt="" />
         </AnimationDiv>
         <AnimationDiv effect="fade-left" className="flex flex-col gap-6 w-[720px]">
             <h1 className="font-poppins-semibold text-white text-[40px]"><span className="text-primary">Anti-Gambling</span> Assistant</h1>
