@@ -13,9 +13,7 @@ class CommunityController extends Controller
     public function index()
     {
         //
-        try {
-            $data = 
-        }
+        
     }
 
     /**
