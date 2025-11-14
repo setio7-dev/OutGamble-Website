@@ -43,7 +43,7 @@ export default function UseChatbot() {
             if (!speech) {
                 ModernAlert({
                     status: 'error',
-                    message: 'Browser Anda Tidak Tersedia Fitur Speech',
+                    message: 'Browser Anda Tidak Tersedia Fitur Speech ',
                     isLoading: false
                 });
             }

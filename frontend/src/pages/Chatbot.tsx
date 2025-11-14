@@ -24,7 +24,7 @@ export default function Chatbot() {
                     <p className='font-poppins-medium text-black text-[18px]'>Mendengarkan Pertanyaanmu</p>
                   </div>
 
-                  <div className="flex items-end justify-center gap-1.5 h-6">
+                  <div className="flex items-end justify-center gap-1.5 h-6 ">
                     <span className="w-2 h-2.5 bg-primary rounded-full animate-wave1"></span>
                     <span className="w-2 h-4 bg-primary rounded-full animate-wave2"></span>
                     <span className="w-2 h-2 bg-primary rounded-full animate-wave3"></span>
