@@ -79,6 +79,24 @@
   }
 }
 
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade {
+  animation: fade 0.3s ease forwards;
+}
+
+.animate-pop {
+  animation: pop 0.3s ease forwards;
+}
+
 .animate-wave1 { animation: wave 1s ease-in-out infinite; animation-delay: 0s; }
 .animate-wave2 { animation: wave 1s ease-in-out infinite; animation-delay: 0.1s; }
 .animate-wave3 { animation: wave 1s ease-in-out infinite; animation-delay: 0.2s; }

@@ -97,7 +97,8 @@ export default function UseChatbot() {
         if (isLoading) {
             ModernAlert({
                 status: 'error',
-                message: "Tunggu Sebentar..."
+                message: "Tunggu Sebentar...",
+                isLoading: false
             });
             return;
         }
