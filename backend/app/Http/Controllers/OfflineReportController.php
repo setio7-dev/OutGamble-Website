@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OnlineReport;
+use App\Models\OfflineReport;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class OnlineReportController extends Controller
+class OfflineReportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class OnlineReportController extends Controller
         try {
             return response()->json([
                 'message' => 'Get data successfully',
-                'data' => OnlineReport::with('user')->get()
+                'data' => OfflineReport::with('user')->get()
             ], 200);
         } catch(Exception $e) {
             return response()->json([
@@ -43,11 +43,12 @@ class OnlineReportController extends Controller
         //
         try {
             $user = Auth::user();
-            $data = new OnlineReport();
+            $data = new OfflineReport();
             $data->user_id = $user->id;
-            $data->url_link = $request->url_link;
-            $data->category = $request->category;
+            $data->place = $request->place;
             $data->address = $request->address;
+            $data->category_place = $request->category_place;
+            $data->coordinates = $request->coordinates;;
             $data->description = $request->description;
 
             $path = $request->file("proof")->store("report", "public");
@@ -76,8 +77,8 @@ class OnlineReportController extends Controller
         //
         try {
             return response()->json([
-                'message' => 'Get data successfully',
-                'data' => OnlineReport::with('user')->find($id)
+                'message' => 'Get dataa successfully',
+                'data' => OfflineReport::with('user')->find($id)
             ], 201);
         } catch(Exception $e) {
             return response()->json([
@@ -89,7 +90,7 @@ class OnlineReportController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(OnlineReport $onlineReport)
+    public function edit(OfflineReport $offlineReport)
     {
         //
     }
@@ -101,10 +102,13 @@ class OnlineReportController extends Controller
     {
         //
         try {
-            $data = OnlineReport::find($id);
-            $data->url_link = $request->url_link;
-            $data->category = $request->category;
+            $user = Auth::user();
+            $data = OfflineReport::find($id);
+            $data->user_id = $user->id;
+            $data->place = $request->place;
             $data->address = $request->address;
+            $data->category_place = $request->category_place;
+            $data->coordinates = $request->coordinates;;
             $data->description = $request->description;
 
             $path = $request->file("proof")->store("report", "public");
@@ -132,7 +136,7 @@ class OnlineReportController extends Controller
     {
         //
         try {
-            $data = OnlineReport::find($id);
+            $data = OfflineReport::find($id);
             $data->delete();
 
             return response()->json([

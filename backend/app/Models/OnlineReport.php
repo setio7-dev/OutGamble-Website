@@ -12,6 +12,7 @@ class OnlineReport extends Model
     use HasFactory, Notifiable;
 
     protected $fillable = [
+        'user_id',
         'url_link',
         'category',
         'address',
