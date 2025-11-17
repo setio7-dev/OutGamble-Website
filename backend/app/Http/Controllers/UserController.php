@@ -7,33 +7,41 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class UserController extends Controller
 {
-    //
     public function register(Request $request)
     {
          try {
-            $isAny = User::where('username', $request->username)->first();
+            $validateData = Validator::make($request->all(), [
+                'username' => 'required|unique:users,username',
+                'fullname' => 'required',
+                'password' => 'required'
+            ], [
+                'username.unique' => 'Nama Pengguna Sudah Digunakan!',
+                'username.required' => 'Nama Pengguna wajib diisi!',
+                'fullname.required' => 'Nama Lengkap wajib diisi!',
+                'password.required' => 'Kata Sandi wajib diisi!',
+            ]);
 
-            if ($isAny) {
+            if ($validateData->fails()) {
                 return response()->json([
-                    'message' => 'Nama Pengguna Sudah Digunakan!'
-                ], 403);
+                    'message' => $validateData->errors()->first()
+                ], 422);
             }
 
-            $user = new User();
-            $user->username = $request->username;
-            $user->fullname = $request->fullname;
-            $user->password = $request->password;
-            $user->role = "user";
-            $user->save();
-
+            $data = User::create([
+                "username" => $request->username,
+                "fullname" => $request->fullname,
+                "password" => $request->password,
+                "role" => "user"
+            ]);
             return response()->json([
-                'message' => 'Daftar Berhasil!',
-                'data' => $user
-            ], 201);
-
+                "data" => $data,
+                "message" => "Daftar Berhasil!"
+            ]);
         } catch(Exception $err) {
             return response()->json([
                 'message' => $err->getMessage()
@@ -44,26 +52,33 @@ class UserController extends Controller
     public function registerAdmin(Request $request)
     {
          try {
-            $isAny = User::where('username', $request->username)->first();
+            $validateData = Validator::make($request->all(), [
+                'username' => 'required|unique:users,username',
+                'fullname' => 'required',
+                'password' => 'required'
+            ], [
+                'username.unique' => 'Nama Pengguna Sudah Digunakan!',
+                'username.required' => 'Nama Pengguna wajib diisi!',
+                'fullname.required' => 'Nama Lengkap wajib diisi!',
+                'password.required' => 'Kata Sandi wajib diisi!',
+            ]);
 
-            if ($isAny) {
+            if ($validateData->fails()) {
                 return response()->json([
-                    'message' => 'Nama Pengguna Sudah Digunakan!'
-                ], 403);
+                    'message' => $validateData->errors()->first()
+                ], 422);
             }
 
-            $user = new User();
-            $user->username = $request->username;
-            $user->fullname = $request->fullname;
-            $user->password = $request->password;
-            $user->role = "admin";
-            $user->save();
-
+            $data = User::create([
+                "username" => $request->username,
+                "fullname" => $request->fullname,
+                "password" => $request->password,
+                "role" => "admin"
+            ]);
             return response()->json([
-                'message' => 'Daftar Berhasil!',
-                'data' => $user
-            ], 201);
-
+                "data" => $data,
+                "message" => "Daftar Berhasil!"
+            ]);
         } catch(Exception $err) {
             return response()->json([
                 'message' => $err->getMessage()
@@ -74,6 +89,20 @@ class UserController extends Controller
     public function login(Request $request)
     {
         try {
+            $validateData = Validator::make($request->all(), [
+                'username' => 'required',
+                'password' => 'required'
+            ], [
+                'username.required' => 'Nama Pengguna wajib diisi!',
+                'password.required' => 'Kata Sandi wajib diisi!',
+            ]);
+
+            if ($validateData->fails()) {
+                return response()->json([
+                    'message' => $validateData->errors()->first()
+                ], 422);
+            }
+
             $user = User::where("username", $request->username)->first();
             if (!$user || !Hash::check($request->password, $user->password)) {
                 return response()->json([
@@ -99,6 +128,23 @@ class UserController extends Controller
         try {
             $user = Auth::user();
             return response()->json([
+                "data" => $user
+            ]);
+        } catch (Exception $err) {
+            return response()->json([
+                "message" => $err->getMessage()
+            ], 422);
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        try {
+            $user = PersonalAccessToken::findToken($request->bearerToken());
+            $user->delete();
+
+            return response()->json([
+                "message" => "Keluar Berhasil!",
                 "data" => $user
             ]);
         } catch (Exception $err) {

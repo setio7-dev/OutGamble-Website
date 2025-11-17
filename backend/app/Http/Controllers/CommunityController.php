@@ -15,9 +15,10 @@ class CommunityController extends Controller
     public function index()
     {
         try {
+            $data = Community::all();
             return response()->json([
-                'message' => 'Get data successfully',
-                "data" => Community::all()
+                'message' => 'Data Berhasil Diambil!',
+                "data" => $data
             ], 200);
         } catch(Exception $e) {
             return response()->json([

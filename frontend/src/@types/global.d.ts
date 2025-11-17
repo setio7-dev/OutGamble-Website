@@ -11,10 +11,16 @@ declare global {
         description: string;
         image_thumbnail: string;
         image_logo: string;
+        link: string;
+    }
+
+    interface userProp {
+        id: number;
+        username: string;
+        fullname: string;    
     }
 
     interface Window {
         MyCustomGLobal: () => void;
     }
-
 }

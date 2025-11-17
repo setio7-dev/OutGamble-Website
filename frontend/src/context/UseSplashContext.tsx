@@ -15,6 +15,6 @@ export function UseSplashContext({ children }: UseSplashType) {
   );
 }
 
-export function UseSplashHook() {
+export function UseSplashHookContext() {
   return useContext(SplashContext);
 }

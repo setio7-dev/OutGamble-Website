@@ -10,9 +10,13 @@ import SafeAreaView from "../../ui/SafeAreaView";
 import AnimationDiv from "../../ui/AnimationDiv";
 import UseShowAuth from "../../hooks/home/UseShowAuth";
 import ModernInput from "../../ui/ModernInput";
+import UseAuth from "../../hooks/auth/UseAuth";
+import { UseAuthHookContext } from "../../context/UseAuthContext";
 
 export default function Welcome() {
   const { showAuth, handleClose, handleOpen, handleChangePopup, thisPopup } = UseShowAuth();
+  const { handleChange, handleLogin, handleRegister, username, fullname, password, handleLogout } = UseAuth();
+  const { user } = UseAuthHookContext();
   return (
     <div className='flex justify-center items-center h-screen bg-black overflow-y-hidden relative'>
       {showAuth && (
@@ -30,16 +34,16 @@ export default function Welcome() {
             <div className="flex flex-col gap-10 w-full mt-4">
               <div className="flex flex-col gap-2 w-full">
                 {thisPopup && (
-                  <ModernInput themeInput="light" placeholder="Masukkan nama lengkap anda..." />
+                  <ModernInput name="fullname" value={fullname} onChange={handleChange} themeInput="light" placeholder="Masukkan nama lengkap anda..." />
                 )}
-                <ModernInput themeInput="light" placeholder="Masukkan nama pengguna anda..." />
-                <ModernInput themeInput="light" placeholder="Masukkan kata sandi anda..." typeInput="password" />
+                <ModernInput name="username" value={username} onChange={handleChange} themeInput="light" placeholder="Masukkan nama pengguna anda..." />
+                <ModernInput name="password" value={password} onChange={handleChange} themeInput="light" placeholder="Masukkan kata sandi anda..." typeInput="password" />
               </div>
               <div className="w-full flex-col flex gap-6 items-center">
                 {thisPopup ? (
-                  <PrimaryButton Type="primary" Text="Daftar" Rounded={10} Width="full" />
+                  <PrimaryButton onClick={handleRegister} Type="primary" Text="Daftar" Rounded={10} Width="full" />
                 ) : (
-                  <PrimaryButton Type="primary" Text="Masuk" Rounded={10} Width="full" />
+                  <PrimaryButton onClick={handleLogin} Type="primary" Text="Masuk" Rounded={10} Width="full" />
                 )}
                 <p className="font-poppins-medium text-black text-[14px]">
                   {thisPopup ? 'Sudah Punya Akun? ' : 'Belum Punya Akun? '}
@@ -70,9 +74,15 @@ export default function Welcome() {
             <AnimationDiv className="relative align-bottom" effect="zoom-in" delay={600}>
               <div className="absolute bottom-14 z-10 bg-[#3B3B3B70] p-4 rounded-full flex justify-center items-center gap-4 w-[440px] -translate-x-1/2 left-1/2 backdrop:backdrop-blur-2xl animate-bounces">
                 <PrimaryButton Text="Mulai Sekarang" Type="secondary" />
-                <button onClick={handleOpen} className="bg-transparent hover:scale-95 hover:opacity-90 duration-500 rounded-full font-poppins-regular text-[14px] cursor-pointer border-2 border-white px-[30px] py-3.5 text-white">
-                  Daftar Sekarang
-                </button>
+                {user?.fullname ? (
+                  <button onClick={handleLogout} className="bg-transparent hover:scale-95 hover:opacity-90 duration-500 rounded-full font-poppins-regular text-[14px] cursor-pointer border-2 border-white px-[30px] py-3.5 text-white">
+                    Mau Keluar?
+                  </button>
+                ) : (
+                  <button onClick={handleOpen} className="bg-transparent hover:scale-95 hover:opacity-90 duration-500 rounded-full font-poppins-regular text-[14px] cursor-pointer border-2 border-white px-[30px] py-3.5 text-white">
+                    Daftar Sekarang
+                  </button>
+                )}
               </div>
               <img src={person} className="w-[300px] h-auto relative z-1" alt="" />
               <img src={backCircle} className="scale-[1.1] absolute z-0 bottom-0 animate-bounces" alt="" />

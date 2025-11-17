@@ -14,6 +14,7 @@ Route::post("/login", [UserController::class, 'login']);
 Route::middleware("auth")->group(function() {
     // Me
     Route::get("/me", [UserController::class, 'me']);
+    Route::post("/logout", [UserController::class, 'logout']);
 
     // Community
     Route::resource("/community", CommunityController::class);

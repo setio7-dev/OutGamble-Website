@@ -10,10 +10,11 @@ type inputType = {
     desc?: string;
     themeInput?: "light" | "dark";
     value?: string;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    name?: string;
+    onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
 };
 
-export default function ModernInput({ placeholder, type = "input", typeInput = "text", themeInput = "light", value, onChange, title, desc }: inputType) {
+export default function ModernInput({ placeholder, type = "input", typeInput = "text", themeInput = "light", value, onChange, title, desc, name }: inputType) {
     const [preview, setPreview] = useState<string | null>(null);
     const [dragActive, setDragActive] = useState(false);
     const inputRef = useRef<HTMLInputElement | null>(null);
@@ -54,12 +55,12 @@ export default function ModernInput({ placeholder, type = "input", typeInput = "
                 type === "input" ? (
                     <div className="flex flex-col gap-4 w-full">
                         <p className="text-white text-[18px] font-poppins-semibold">{title}</p>
-                        <input className="placeholder:text-[#A9A9A9] bg-[#f1f1f1] outline-0 font-poppins-regular text-[14px] text-black rounded-md w-full px-4 py-3 focus-within:border-2 focus-within:border-primary" value={value} onChange={onChange} placeholder={placeholder} type={typeInput} />
+                        <input name={name} className="placeholder:text-[#A9A9A9] bg-[#f1f1f1] outline-0 font-poppins-regular text-[14px] text-black rounded-md w-full px-4 py-3 focus-within:border-2 focus-within:border-primary" value={value} onChange={onChange} placeholder={placeholder} type={typeInput} />
                     </div>
                 ) : type === "textarea" ? (
                     <div className="flex flex-col gap-4 w-full">
                         <p className="text-white text-[18px] font-poppins-semibold">{title}</p>
-                        <textarea className="placeholder:text-[#A9A9A9] h-[120px] bg-white outline-0 font-poppins-regular text-[14px] text-black rounded-md w-full px-4 py-3 focus-within:border-2 focus-within:border-primary" value={value} onChange={onChange} placeholder={placeholder}></textarea>
+                        <textarea name={name} className="placeholder:text-[#A9A9A9] h-[120px] bg-white outline-0 font-poppins-regular text-[14px] text-black rounded-md w-full px-4 py-3 focus-within:border-2 focus-within:border-primary" value={value} onChange={onChange} placeholder={placeholder}></textarea>
                     </div>
                 ) : (
                     <div className="flex flex-col gap-4 w-full">
@@ -84,18 +85,18 @@ export default function ModernInput({ placeholder, type = "input", typeInput = "
                             {preview && <img src={preview} className="w-40 h-40 object-cover rounded-md border" />}
                         </div>
 
-                        <input type="file" ref={inputRef} className="hidden" onChange={onInputChange} />
+                        <input name={name} type="file" ref={inputRef} className="hidden" onChange={onInputChange} />
                     </div>
                 )
             ) : type === "input" ? (
                 <div className="flex flex-col gap-4 w-full">
                     <p className="text-primary text-[18px] font-poppins-semibold">{title}</p>
-                    <input className="placeholder:text-[#484848] bg-[#131313] outline-0 font-poppins-regular text-[14px] text-white rounded-md w-full px-4 py-3 focus-within:border-2 focus-within:border-[#5D5D5D]" value={value} onChange={onChange} placeholder={placeholder} type={typeInput} />
+                    <input name={name} className="placeholder:text-[#484848] bg-[#131313] outline-0 font-poppins-regular text-[14px] text-white rounded-md w-full px-4 py-3 focus-within:border-2 focus-within:border-[#5D5D5D]" value={value} onChange={onChange} placeholder={placeholder} type={typeInput} />
                 </div>
             ) : type === "textarea" ? (
                 <div className="flex flex-col gap-4 w-full">
                     <p className="text-primary text-[18px] font-poppins-semibold">{title}</p>
-                    <textarea className="placeholder:text-[#484848] h-[120px] bg-[#131313] outline-0 font-poppins-regular text-[14px] text-white rounded-md w-full px-4 py-3 focus-within:border-2 focus-within:border-[#5D5D5D]" value={value} onChange={onChange} placeholder={placeholder}></textarea>
+                    <textarea name={name} className="placeholder:text-[#484848] h-[120px] bg-[#131313] outline-0 font-poppins-regular text-[14px] text-white rounded-md w-full px-4 py-3 focus-within:border-2 focus-within:border-[#5D5D5D]" value={value} onChange={onChange} placeholder={placeholder}></textarea>
                 </div>
             ) : (
                 <div className="flex flex-col gap-4 w-full">
@@ -120,7 +121,7 @@ export default function ModernInput({ placeholder, type = "input", typeInput = "
                         {preview && <img src={preview} className="w-40 h-40 object-cover rounded-md border" />}
                     </div>
 
-                    <input type="file" ref={inputRef} className="hidden" onChange={onInputChange} />
+                    <input name={name} type="file" ref={inputRef} className="hidden" onChange={onInputChange} />
                 </div>
             )}
         </div>
