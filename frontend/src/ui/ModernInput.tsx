@@ -66,7 +66,7 @@ export default function ModernInput({ placeholder, type = "input", typeInput = "
                     <div className="flex flex-col gap-4 w-full">
                         <div className="flex flex-col gap-2">
                             <p className="text-white text-[18px] font-poppins-semibold">{title}</p>
-                            <p className="text-[#FEFEFE] text-[14px] font-poppins-light">{desc}</p>
+                            <p className="text-[#FEFEFE] text-[14px] font-poppins-medium">{desc}</p>
                         </div>
 
                         <div
@@ -74,7 +74,7 @@ export default function ModernInput({ placeholder, type = "input", typeInput = "
                             onDragOver={onDragOver}
                             onDragLeave={onDragLeave}
                             onDrop={onDrop}
-                            className={`bg-white w-full p-6 cursor-pointer rounded-lg flex flex-col justify-center items-center gap-4 border-2 border-primary border-dashed transition ${dragActive ? "bg-blue-50 border-blue-500" : ""}`}
+                            className={`bg-white w-full px-6 py-12 cursor-pointer rounded-lg flex flex-col justify-center items-center gap-4 border-2 border-primary border-dashed transition ${dragActive ? "bg-blue-50 border-blue-500" : ""}`}
                         >
                             <img src={upload} className="w-12 h-auto" alt="" />
                             <h1 className="font-poppins-medium text-[18px] text-black">
@@ -102,7 +102,7 @@ export default function ModernInput({ placeholder, type = "input", typeInput = "
                 <div className="flex flex-col gap-4 w-full">
                     <div className="flex flex-col gap-2">
                         <p className="text-primary text-[18px] font-poppins-semibold">{title}</p>
-                        <p className="text-white text-[14px] font-poppins-light">{desc}</p>
+                        <p className="text-white text-[14px] font-poppins-medium">{desc}</p>
                     </div>
 
                     <div
@@ -110,7 +110,7 @@ export default function ModernInput({ placeholder, type = "input", typeInput = "
                         onDragOver={onDragOver}
                         onDragLeave={onDragLeave}
                         onDrop={onDrop}
-                        className={`bg-[#131313] w-full p-6 cursor-pointer rounded-lg flex flex-col justify-center items-center gap-4 border-2 border-primary border-dashed transition ${dragActive ? "bg-[#1f1f1f] border-white" : ""}`}
+                        className={`bg-[#131313] w-full px-6 py-12 cursor-pointer rounded-lg flex flex-col justify-center items-center gap-4 border-2 border-primary border-dashed transition ${dragActive ? "bg-[#1f1f1f] border-white" : ""}`}
                     >
                         <img src={upload} className="w-12 h-auto" alt="" />
                         <h1 className="font-poppins-medium text-[18px] text-white">
