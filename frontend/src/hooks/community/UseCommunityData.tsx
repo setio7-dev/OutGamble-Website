@@ -8,10 +8,7 @@ export default function UseCommunityData() {
   useEffect(() => {
     const handleFetchCommunity = async() => {
         try {
-            const token = localStorage.getItem("token");
-            const response = await API.get('/community', {
-                headers: {'Authorization': `bearer ${token}`}
-            });
+            const response = await API.get('/community');
             setCommunities(response.data.data);
         } catch (error: any) {
             console.error(error.response.data.message);

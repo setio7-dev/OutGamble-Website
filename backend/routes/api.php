@@ -11,13 +11,18 @@ Route::post("/register", [UserController::class, 'register']);
 Route::post("/register/admin", [UserController::class, 'registerAdmin']);
 Route::post("/login", [UserController::class, 'login']);
 
+Route::get("/community", [CommunityController::class, "index"]);
+Route::get("/community/{id}", [CommunityController::class, "show"]);
+
 Route::middleware("auth")->group(function() {
     // Me
     Route::get("/me", [UserController::class, 'me']);
     Route::post("/logout", [UserController::class, 'logout']);
 
     // Community
-    Route::resource("/community", CommunityController::class);
+    Route::post("/community", [CommunityController::class, "store"]);
+    Route::put("/community/{id}", [CommunityController::class, "update"]);
+    Route::delete("/community/{id}", [CommunityController::class, "delete"]);
 
     // Report Online & Offline
     Route::resource("/report/online", OnlineReportController::class);
