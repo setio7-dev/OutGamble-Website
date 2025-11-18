@@ -16,10 +16,8 @@ export default function ScanBarcodeContent() {
             <ModernInput name="image" onChange={handleChange} type="file" typeInput="file" title="Unggah Media" desc="Tambahkan Foto Anda didalam Input ini" placeholder=""/>
             <div className="w-full flex justify-center items-center gap-8 my-6">
                 <div className="bg-[#E7E7E7] w-full h-0.5"></div>
-                <h1 className="text-primary font-poppins-semibold text-[20px]">Atau</h1>
-                <div className="bg-[#E7E7E7] w-full h-0.5"></div>
             </div>
-            <ModernInput name="link" value={link} onChange={handleChange} type="input" typeInput="text" title="Masukkan tautan QR di bawah ini" placeholder="Link Website..."/>
+            <ModernInput disabled={true} name="link" value={link} onChange={handleChange} type="input" typeInput="text" title="Tautan Hasil dari QR di atas ini" placeholder="Link Website..."/>
             <div className="w-full flex justify-center mt-8">
                 <PrimaryButton onClick={handleScan} Text="Pindai" Rounded={12} Type="primary" PaddingX={60} />
             </div>

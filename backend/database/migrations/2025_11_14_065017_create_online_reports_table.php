@@ -16,7 +16,6 @@ return new class extends Migration
             $table->bigInteger("user_id")->unsigned();
             $table->text('url_link');
             $table->string('category');
-            $table->string('address');
             $table->text('description');
             $table->text('proof');
             $table->string('contact');

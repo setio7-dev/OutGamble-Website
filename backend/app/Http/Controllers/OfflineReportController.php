@@ -6,6 +6,7 @@ use App\Models\OfflineReport;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class OfflineReportController extends Controller
 {
@@ -14,11 +15,11 @@ class OfflineReportController extends Controller
      */
     public function index()
     {
-        //
         try {
+            $data = OfflineReport::with('user')->get();
             return response()->json([
                 'message' => 'Get data successfully',
-                'data' => OfflineReport::with('user')->get()
+                'data' => $data
             ], 200);
         } catch(Exception $e) {
             return response()->json([
@@ -40,10 +41,27 @@ class OfflineReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
         try {
+            $validateData = Validator::make($request->all(), [
+                "place" => "required",
+                "address" => "required",
+                "category_place" => "required",
+                "coordinates" => "required",
+                "description" => "required",
+                "contact" => "required",
+            ], [
+                "required" => "Data ini Wajib Diisi!"
+            ]);
+
+            if ($validateData->fails()) {
+                return response()->json([
+                    "message" => $validateData->errors()->first()
+                ], 422);
+            }
+
             $user = Auth::user();
             $data = new OfflineReport();
+
             $data->user_id = $user->id;
             $data->place = $request->place;
             $data->address = $request->address;
@@ -74,7 +92,6 @@ class OfflineReportController extends Controller
      */
     public function show($id)
     {
-        //
         try {
             return response()->json([
                 'message' => 'Get dataa successfully',

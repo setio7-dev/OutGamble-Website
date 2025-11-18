@@ -1,6 +1,6 @@
 import SafeAreaView from '../../ui/SafeAreaView'
 import AnimationDiv from '../../ui/AnimationDiv';
-import UseScrollAnimation from '../../hooks/home/useScrollAnimation';
+import UseScrollAnimation from '../../hooks/home/UseScrollAnimation';
 
 export default function Amount() {
   const { visitor, campanye, article, user } = UseScrollAnimation();

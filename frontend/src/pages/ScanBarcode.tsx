@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import AOS from 'aos';
-import ScanBarcodeContent from "../components/scan/scanBarcodeContent";
+import ScanBarcodeContent from "../components/scan/ScanBarcodeContent";
 
 export default function ScanBarcode() {
     useEffect(() => {

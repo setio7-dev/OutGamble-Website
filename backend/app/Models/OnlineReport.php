@@ -14,7 +14,7 @@ class OnlineReport extends Model
         'user_id',
         'url_link',
         'category',
-        'address',
+        'contact',
         'description',
         'proof'
     ];

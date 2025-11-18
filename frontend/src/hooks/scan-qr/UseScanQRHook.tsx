@@ -1,70 +1,108 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import { ModernAlert } from "../../ui/ModernAlert";
+import jsQR from "jsqr";
 import axios from "axios";
 
 export default function UseScanQRHook() {
   const [link, setLink] = useState<string>("");
-  const [image, setImage] = useState<any>();
-  const [data, setData] = useState<scanQrProp | null>(null);
+  const [image, setImage] = useState<File | null>(null);
+  const [preview, setPreview] = useState<string>("");
+  const [data, setData] = useState<any>(null);
 
   const handleScan = async () => {
     try {
-      let payload: any = {};
-
       if (image) {
-        const base64 = await toBase64(image);
-        payload = { image: base64 };
-      } else {
-        payload = { link };
+        const qrLink = await decodeQR(image);
+        if (!qrLink) {
+          ModernAlert({ status: "error", message: "QR tidak terbaca" });
+          return;
+        }
+
+        setLink(qrLink);
+        const response = await axios.post(
+          "https://pandutria-gambling-sites.hf.space/predict",
+          { link: qrLink }
+        );
+
+        localStorage.setItem("scan-qr", JSON.stringify(response.data));
+
+        ModernAlert({
+          status: "success",
+          message: "QR Berhasil Di-scan",
+          typeLink: "LinkTo",
+          linkTo: "/result-scan-qr",
+        });
+
+        return;
       }
 
-      const response = await axios.post(
-        "https://pandutria-gambling-sites.hf.space/predict",
-        payload
-      );
-
-      localStorage.setItem("scan-qr", JSON.stringify(response.data));
+      localStorage.setItem("scan-qr", JSON.stringify(link));
       ModernAlert({
         status: "success",
-        message: "Link Berhasil Dianalisis",
+        message: "Link Berhasil Disimpan",
         typeLink: "LinkTo",
         linkTo: "/result-scan-qr",
       });
-    } catch (error: any) {
-      ModernAlert({
-        status: "error",
-        message: error.response?.data?.message || "Terjadi Kesalahan",
-      });
+    } catch {
+      ModernAlert({ status: "error", message: "Terjadi Kesalahan" });
     }
   };
 
-  const toBase64 = (file: File) =>
-    new Promise<string>((resolve, reject) => {
+  const decodeQR = (file: File) =>
+    new Promise<string | null>((resolve) => {
+      const img = new Image();
       const reader = new FileReader();
+
+      reader.onload = () => {
+        img.src = String(reader.result);
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+          if (!ctx) return resolve(null);
+
+          canvas.width = img.width;
+          canvas.height = img.height;
+
+          ctx.drawImage(img, 0, 0, img.width, img.height);
+
+          const imageData = ctx.getImageData(0, 0, img.width, img.height);
+          const qr = jsQR(imageData.data, img.width, img.height);
+
+          resolve(qr?.data || null);
+        };
+      };
+
       reader.readAsDataURL(file);
-      reader.onload = () => resolve(String(reader.result));
-      reader.onerror = reject;
     });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, files, value } = e.target;
+
     if (name === "link") setLink(value);
-    if (name === "image" && files) setImage(files[0]);
+
+    if (name === "image" && files) {
+      const file = files[0];
+      setImage(file);
+      setPreview(URL.createObjectURL(file));
+
+      decodeQR(file).then((qrLink) => {
+        if (qrLink) {
+          setLink(qrLink);
+        }
+      });
+    }
   };
 
   const fetchScan = () => {
-    const data = JSON.parse(localStorage.getItem("scan-qr") || "[]");
-    if (data.length === 0) {
-        window.location.href = "/";
-    } else {
-        setData(data);
-    }
-  }
+    const raw = localStorage.getItem("scan-qr");
+    if (!raw) return window.location.href = "/";
+    setData(JSON.parse(raw));
+  };
 
   useEffect(() => {
     fetchScan();
   }, []);
 
-  return { handleScan, handleChange, link, data };
+  return { handleScan, handleChange, link, data, preview };
 }

@@ -27,6 +27,28 @@ declare global {
         tingkat_resiko: string;
     }
 
+    interface onlineReportProp {
+        id?: number;
+        user_id?: number;
+        url_link: string;
+        category: string;
+        contact: string;
+        description: string;
+        proof: File | null;
+    }
+
+    interface offlineReportProp {
+        id?: number;
+        user_id?: number;
+        place: string;
+        address: string;
+        category_place: string;
+        coordinates: string;
+        description: string;
+        proof: File | null;
+        contact: string;
+    }
+
     interface Window {
         MyCustomGLobal: () => void;
     }

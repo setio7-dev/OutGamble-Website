@@ -6,6 +6,8 @@ use App\Models\OnlineReport;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class OnlineReportController extends Controller
 {
@@ -14,11 +16,11 @@ class OnlineReportController extends Controller
      */
     public function index()
     {
-        //
         try {
+            $data = OnlineReport::with('user')->get();
             return response()->json([
                 'message' => 'Get data successfully',
-                'data' => OnlineReport::with('user')->get()
+                'data' => $data
             ], 200);
         } catch(Exception $e) {
             return response()->json([
@@ -40,19 +42,32 @@ class OnlineReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
         try {
+            $validateData = Validator::make($request->all(), [
+                "url_link" => "required",
+                "category" => "required",
+                "proof" => "required",
+                "contact" => "required",
+                "description" => "required",
+            ], [
+                "required" => "Data ini Wajib Diisi!"
+            ]);
+
+            if ($validateData->fails()) {
+                return response()->json([
+                    "message" => $validateData->errors()->first()
+                ], 422);
+            }
+
             $user = Auth::user();
             $data = new OnlineReport();
+
             $data->user_id = $user->id;
             $data->url_link = $request->url_link;
             $data->category = $request->category;
-            $data->address = $request->address;
             $data->description = $request->description;
-
-            $path = $request->file("proof")->store("report", "public");
+            $path = Storage::disk("public")->putFile("report", $request->proof);
             $data->proof = $path;
-
             $data->contact = $request->contact;
             $data->save();
             $data->load('user');
