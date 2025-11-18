@@ -10,7 +10,7 @@ export default function Testimonial() {
   const { handleNextWithAnim, handlePrevWithAnim, reoderedTestimonialData, animateDirection } = UseTestimonialSelected();  
   
   return (
-    <div className="w-full h-auto py-16 mt-12 flex flex-col justify-center gap-30">
+    <div className="w-full h-auto py-16 mt-12 flex flex-col justify-center gap-30" id="testimonial">
       <SafeAreaView classNameParent={"w-full bg-white rotate-[-3deg]"} paddingY={16} classNameChild={"flex-col justify-center"}>
         <div className="">
           <div className="overflow-x-hidden w-full">

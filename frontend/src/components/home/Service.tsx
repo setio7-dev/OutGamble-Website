@@ -6,7 +6,7 @@ import { serviceData } from "../../data/homeData";
 
 export default function Service() {
     return (
-        <div className="w-full relative bg-primary">
+        <div className="w-full relative bg-primary" id="service">
             <img src={circle} className="w-40 animate-autoRotates h-auto absolute -right-18 top-20" alt="" />
             <SafeAreaView classNameParent={"bg-linear-to-r from-[#005625] to-[#05B14F]"} classNameChild={"h-full relative flex-col justify-center items-start gap-6"}>
                 <AnimationDiv effect="fade-up" className="flex w-full flex-col gap-6">

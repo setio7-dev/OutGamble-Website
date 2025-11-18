@@ -7,7 +7,7 @@ import { aboutData } from "../../data/homeData";
 export default function About() {
   return (
     <SafeAreaView classNameChild={"h-full flex-col justify-center"}>
-        <div className="flex items-center justify-between w-full">
+        <div className="flex items-center justify-between w-full" id="about">
             <AnimationDiv effect="fade-right">
                 <img src={aboutImage} alt="" className="w-[440px] h-auto duration-500 hover:scale-[1.1] cursor-pointer" />
             </AnimationDiv>

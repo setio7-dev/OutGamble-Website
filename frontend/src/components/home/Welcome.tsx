@@ -79,7 +79,9 @@ export default function Welcome() {
             </AnimationDiv>
             <AnimationDiv className="relative align-bottom" effect="zoom-in" delay={600}>
               <div className="absolute bottom-14 z-10 bg-[#3B3B3B70] p-4 rounded-full flex justify-center items-center gap-4 w-[440px] -translate-x-1/2 left-1/2 backdrop:backdrop-blur-2xl animate-bounces">
-                <PrimaryButton Text="Mulai Sekarang" Type="secondary" />
+                <a href="#about">
+                  <PrimaryButton Text="Mulai Sekarang" Type="secondary" />
+                </a>
                 {user?.fullname ? (
                   <button onClick={handleLogout} className="bg-transparent hover:scale-95 hover:opacity-90 duration-500 rounded-full font-poppins-regular text-[14px] cursor-pointer border-2 border-white px-[30px] py-3.5 text-white">
                     Mau Keluar?
