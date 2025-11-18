@@ -16,9 +16,7 @@ export default function Community() {
                 <p className="text-white font-poppins-medium text-[14px] text-justify">Temukan ruang aman untuk saling berbagi pengalaman, berdiskusi, dan belajar bersama mengenai bahaya judi online. Di komunitas ini, kamu bisa bertemu dengan orang-orang yang memiliki semangat yang sama untuk menciptakan perubahan positif.</p>
             </div>
             <div className="flex flex-row justify-start gap-4">
-                <a href="/community#">
-                    <PrimaryButton Text="Gabung Sekarang" Type="primary"/>
-                </a>
+                <PrimaryButton Text="Gabung Sekarang" Type="primary" LinkTo="/community"/>
                 <div className="flex items-center gap-4 cursor-pointer hover:translate-x-4 duration-500">
                     <h2 className="font-poppins-semibold text-primary text-[18px]">Lihat Komunitas</h2>
                     <img src={arrow} className="w-6 h-auto" alt="" />

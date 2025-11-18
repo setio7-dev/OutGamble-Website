@@ -3,6 +3,7 @@ import SafeAreaView from "../../ui/SafeAreaView"
 import circle from "/image/home/service/circle.png";
 import AnimationDiv from "../../ui/AnimationDiv";
 import { serviceData } from "../../data/homeData";
+import { Link } from "react-router-dom";
 
 export default function Service() {
     return (
@@ -18,7 +19,7 @@ export default function Service() {
                 </AnimationDiv>
                 <div className="flex justify-between w-full items-center mt-4 gap-6 cursor-pointer">
                     {serviceData.map((item, index) => (
-                        <a key={index} href={item.link + "#"}>
+                        <Link to={item.link} key={index}>
                             <AnimationDiv effect="fade-up" delay={item.id * 300} className="bg-white hover:bg-primary duration-500 border-2 border-white group w-full rounded-lg p-6 flex flex-col gap-6">
                                 <svg viewBox={`${item.id == 1 ? '0 0 77 77' : '0 0 88 88'}`} className="bg-primary group-hover:bg-white duration-500 w-28 h-auto p-6 rounded-lg" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d={item.img} className="fill-white group-hover:fill-primary duration-500" />
@@ -34,7 +35,7 @@ export default function Service() {
                                     </svg>
                                 </div>
                             </AnimationDiv>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </SafeAreaView>
