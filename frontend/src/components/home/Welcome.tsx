@@ -21,13 +21,13 @@ export default function Welcome() {
     <div className='flex justify-center items-center h-screen bg-black overflow-y-hidden relative'>
       {showAuth && (
         <div className="w-full h-full bg-black/40 absolute flex justify-center items-center z-120 animate-fade">
-          <div className="bg-white p-6 rounded-lg flex flex-col items-center justify-center w-100 relative animate-pop">
+          <div className="bg-white p-6 rounded-lg flex flex-col items-center justify-center lg:w-100 w-80 relative animate-pop">
             <p className="font-poppins-semibold text-primary text-[16px] cursor-pointer top-4 right-4 absolute" onClick={handleClose}>X</p>
             <div className="flex flex-col gap-2 items-center">
-              <h1 className="text-primary font-poppins-semibold text-[30px]">
+              <h1 className="text-primary font-poppins-semibold lg:text-[30px] text-[26px]">
                 {thisPopup ? 'Daftar' : 'Masuk'} Akun
               </h1>
-              <p className="font-poppins-medium text-black text-[14px]">
+              <p className="font-poppins-medium text-center text-black lg:text-[14px] text-[12px]">
                 Silahkan Masukkan Data Anda Secara Benar!
               </p>
             </div>

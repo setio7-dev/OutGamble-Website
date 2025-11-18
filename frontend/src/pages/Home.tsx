@@ -16,29 +16,37 @@ import Education from '../components/home/Education';
 import Ask from '../components/home/Ask';
 import Footer from '../components/Footer';
 import SplashScreen from '../components/SplashScreen';
+import { UseAuthHookContext } from '../context/UseAuthContext';
+import MobileNavbar from '../components/MobileNavbar';
 
 export default function Home() {
-    useEffect(() => {
-        AOS.init();
-    });
+  useEffect(() => {
+    AOS.init();
+  });
+
+  const { isMobile } = UseAuthHookContext();
   return (
     <div>
-      <SplashScreen/>
-      <Navbar/>
-      <Welcome/>
-      <Amount/>
-      <About/>
-      <Service/>
-      <Action/>
-      <Community/>
-      <Bot/>
-      <Testimonial/>
-      <Tips/>
-      <News/>
-      <Statistic/>
-      <Education/>
-      <Ask/>
-      <Footer/>
+      <SplashScreen />
+      {isMobile ? (
+        <MobileNavbar/>
+      ) : (
+        <Navbar />
+      )}
+      <Welcome />
+      <Amount />
+      <About />
+      <Service />
+      <Action />
+      <Community />
+      <Bot />
+      <Testimonial />
+      <Tips />
+      <News />
+      <Statistic />
+      <Education />
+      <Ask />
+      <Footer />
     </div>
   )
 }
