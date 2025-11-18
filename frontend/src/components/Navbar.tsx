@@ -1,5 +1,6 @@
 import logo from "/image/logo/logo.png"
 import { UseSplashHookContext } from "../context/UseSplashContext";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
     const { isStart } = UseSplashHookContext();
@@ -9,10 +10,10 @@ export default function Navbar() {
             <div className="bg-black w-280 flex items-center h-[12vh] justify-between px-14">
               <a href="#about" className="font-poppins-light transition-all duration-700 text-white text-[16px] cursor-pointer hover:text-primary" style={{ opacity: `${isStart ? 100 : 0}` }}>Tentang Kami</a>
               <a href="#service" className="font-poppins-light transition-all duration-700 text-white text-[16px] cursor-pointer hover:text-primary" style={{ opacity: `${isStart ? 100 : 0}` }}>Layanan Kami</a>
-              <a href="/#" className="flex justify-center items-center gap-4 cursor-pointer">
+              <Link to="/#" className="flex justify-center items-center gap-4 cursor-pointer">
                 <img src={logo} className="w-10 h-auto" alt="" />
                 <h1 className="text-white font-poppins-semibold text-[16px]">OutGamble</h1>
-              </a>
+              </Link>
               <a href="#testimonial" className="font-poppins-light transition-all duration-700 text-white text-[16px] cursor-pointer hover:text-primary" style={{ opacity: `${isStart ? 100 : 0}` }}>Testimoni</a>
               <a href="#community" className="font-poppins-light transition-all duration-700 text-white text-[16px] cursor-pointer hover:text-primary" style={{ opacity: `${isStart ? 100 : 0}` }}>Komunitas Kami</a>
             </div>
