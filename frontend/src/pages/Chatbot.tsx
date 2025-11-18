@@ -12,7 +12,7 @@ import ReactMarkdown from "react-markdown";
 import UseChatbot from '../hooks/chatbot/UseChatbot';
 
 export default function Chatbot() {
-    const { displayedText, message, userMessage, setUserMessage, isLoading, handleMessage, startListening, isListening, chatRef } = UseChatbot();
+    const { displayedText, message, userMessage, setUserMessage, isLoading, handleMessage, startListening, isListening, chatRef } = UseChatbot();    
   return (
     <SafeAreaView classNameParent={'h-[100vh]'} paddingY={28} classNameChild={'justify-start flex-col relative'}>
         {isListening && (
