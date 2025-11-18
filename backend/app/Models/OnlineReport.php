@@ -8,7 +8,6 @@ use Illuminate\Notifications\Notifiable;
 
 class OnlineReport extends Model
 {
-    //
     use HasFactory, Notifiable;
 
     protected $fillable = [

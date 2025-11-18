@@ -20,6 +20,13 @@ declare global {
         fullname: string;    
     }
 
+    interface scanQrProp {
+        category: string;
+        link: string;
+        status: string;
+        tingkat_resiko: string;
+    }
+
     interface Window {
         MyCustomGLobal: () => void;
     }

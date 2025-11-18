@@ -4,6 +4,7 @@ import Chatbot from "../pages/Chatbot"
 import Community from "../pages/Community"
 import ScanBarcode from "../pages/ScanBarcode"
 import ResultScanBarcode from "../pages/ResultScanBarcode"
+import Report from "../pages/Report"
 
 export default function Router() {
   return (
@@ -14,6 +15,7 @@ export default function Router() {
             <Route path="/community" element={<Community/>}/>
             <Route path="/scan-qr" element={<ScanBarcode/>}/>
             <Route path="/result-scan-qr" element={<ResultScanBarcode/>}/>
+            <Route path="/report" element={<Report/>}/>
         </Routes>
     </BrowserRouter>
   )
