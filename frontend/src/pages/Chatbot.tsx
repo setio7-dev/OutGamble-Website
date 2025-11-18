@@ -85,7 +85,7 @@ export default function Chatbot() {
                 <div className="flex justify-between items-center w-full gap-14">
                     {suggestionData.map((item, index) => (
                         <AnimationDiv effect='fade-up' delay={item.id * 200} key={index}>
-                            <div onClick={() => handleMessage(item.text)} className="bg-linear-to-r from-[#05B14F] to-secondary p-4 rounded-lg flex flex-col gap-4 cursor-pointer w-full hover:scale-95 hover:opacity-60 duration-500">
+                            <div onClick={() => handleMessage(item.text)} className="bg-linear-to-r from-fourthtinary to-secondary p-4 rounded-lg flex flex-col gap-4 cursor-pointer w-full hover:scale-95 hover:opacity-60 duration-500">
                                 <img src={item.img} className='w-12 h-auto' alt="" />
                                 <h1 className='font-poppins-medium text-justify text-white text-[14px]'>{item.text}</h1>
                             </div>

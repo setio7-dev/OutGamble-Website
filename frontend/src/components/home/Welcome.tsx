@@ -18,7 +18,7 @@ export default function Welcome() {
   const { handleChange, handleLogin, handleRegister, username, fullname, password, handleLogout } = UseAuth();
   const { user } = UseAuthHookContext();
   return (
-    <div className='flex justify-center items-center h-screen bg-black overflow-y-hidden relative'>
+    <div className='flex justify-center items-center lg:h-screen h-auto bg-black overflow-y-hidden relative'>
       {showAuth && (
         <div className="w-full h-full bg-black/40 absolute flex justify-center items-center z-120 animate-fade">
           <div className="bg-white p-6 rounded-lg flex flex-col items-center justify-center lg:w-100 w-80 relative animate-pop">
@@ -56,8 +56,8 @@ export default function Welcome() {
           </div>
         </div>
       )}
-      <SafeAreaView classNameParent={'bg-white rounded-b-[120px] w-full h-full'} paddingY={0} classNameChild={'flex-col justify-end h-full'}>
-        <div className="w-full flex gap-6 flex-col">
+      <SafeAreaView classNameParent={'bg-white lg:rounded-b-[120px] rounded-none w-full h-full'} paddingY={0} classNameChild={'flex-col justify-end h-full lg:px-0 px-4'}>
+        <div className="w-full flex lg:pt-0 pt-34 gap-6 flex-col">
           <AnimationDiv className="relative w-full" effect="fade-up">
             {user?.fullname && (
               <div className="absolute right-0 -top-4 animate-bounces">
@@ -65,20 +65,20 @@ export default function Welcome() {
               </div>
             )}
 
-            <img src={circle1} alt="" className="w-22 h-auto animate-autoRotates absolute left-14 -top-2" />
-            <h1 className="font-poppins-semibold text-[42px] text-center">Memberdayakan Generasi <br />Cerdas untuk <span className="text-primary">Menjauhi Judi Online</span></h1>
-            <img src={textLine} alt="" className="w-[46px] animate-rotates h-auto absolute right-28 bottom-0" />
+            <img src={circle1} alt="" className="lg:w-22 w-12 h-auto animate-autoRotates absolute lg:left-14 -left-6 lg:-top-2 -top-4" />
+            <h1 className="font-poppins-semibold lg:text-[42px] text-[26px] text-center">Memberdayakan Generasi <br className="lg:block hidden" />Cerdas untuk <span className="text-primary">Menjauhi Judi Online</span></h1>
+            <img src={textLine} alt="" className="lg:w-[46px] w-6 animate-rotates h-auto absolute lg:right-28 -right-3 bottom-0" />
           </AnimationDiv>
-          <div className="flex justify-between">            
-            <AnimationDiv className="w-[380px] flex gap-2" effect="fade-right" delay={200}>
-              <img src={kutip} alt="" className="w-6 h-6 -mt-4" />
-              <div className="flex flex-col gap-6">
-                <p className="font-poppins-regular text-[14px] text-justify text-gray">Out Gamble hadir sebagai platform edukatif yang membantu pelajar dan masyarakat memahami bahaya judi online. Melalui informasi, tips, dan solusi digital yang interaktif, kami berkomitmen membangun generasi sadar dan bebas dari kecanduan judi.</p>
+          <div className="flex lg:flex-row flex-col lg:justify-between justify-center lg:items-start items-center">
+            <AnimationDiv className="lg:w-[380px] w-full flex gap-2" effect="fade-right" delay={200}>
+              <img src={kutip} alt="" className="w-6 h-6 -mt-4 lg:block hidden" />
+              <div className="flex flex-col lg:items-start items-center gap-6">
+                <p className="font-poppins-regular text-[14px] lg:text-justify text-center text-gray">Out Gamble hadir sebagai platform edukatif yang membantu pelajar dan masyarakat memahami bahaya judi online. Melalui informasi, tips, dan solusi digital yang interaktif, kami berkomitmen membangun generasi sadar dan bebas dari kecanduan judi.</p>
                 <PrimaryButton Type="primary" Text="Cari Tips & Saran" />
               </div>
             </AnimationDiv>
-            <AnimationDiv className="relative align-bottom" effect="zoom-in" delay={600}>
-              <div className="absolute bottom-14 z-10 bg-[#3B3B3B70] p-4 rounded-full flex justify-center items-center gap-4 w-[440px] -translate-x-1/2 left-1/2 backdrop:backdrop-blur-2xl animate-bounces">
+            <AnimationDiv className="relative align-bottom lg:mt-0 mt-10" effect="zoom-in" delay={600}>
+              <div className="absolute bottom-14 z-10 lg:bg-[#3B3B3B70] bg-transparent p-4 rounded-full flex lg:flex-row flex-col justify-center items-center gap-4 lg:w-[440px] w-[320px] -translate-x-1/2 left-1/2 backdrop:backdrop-blur-2xl animate-bounces">
                 <a href="#about">
                   <PrimaryButton Text="Mulai Sekarang" Type="secondary" />
                 </a>
@@ -92,10 +92,10 @@ export default function Welcome() {
                   </button>
                 )}
               </div>
-              <img src={person} className="w-[300px] h-auto relative z-1" alt="" />
-              <img src={backCircle} className="scale-[1.1] absolute z-0 bottom-0 animate-bounces" alt="" />
+              <img src={person} className="lg:w-[300px] w-[280px] h-auto relative z-1" alt="" />
+              <img src={backCircle} className="lg:scale-[1.1] scale-[0.9] absolute z-0 bottom-0 animate-bounces" alt="" />
             </AnimationDiv>
-            <AnimationDiv className="w-[340px] flex flex-col justify-between pb-6" effect="fade-left" delay={200}>
+            <AnimationDiv className="w-[340px] lg:flex hidden flex-col justify-between pb-6" effect="fade-left" delay={200}>
               <div className=""></div>
               <div className="flex flex-col items-end gap-4">
                 <img src={stars} className="w-[120px] h-auto" alt="" />
