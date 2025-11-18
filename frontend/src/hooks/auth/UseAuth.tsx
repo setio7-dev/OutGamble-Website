@@ -62,6 +62,9 @@ export default function UseAuth() {
         });
 
         localStorage.removeItem("token");
+        localStorage.removeItem("linkDetectionData");
+        localStorage.removeItem("scan-qr");
+        
         ModernAlert({
             message: response.data.message,
             status: 'success',

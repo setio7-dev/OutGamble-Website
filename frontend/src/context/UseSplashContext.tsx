@@ -7,7 +7,7 @@ type UseSplashType = {
 }
 
 export function UseSplashContext({ children }: UseSplashType) {
-  const [isStart, setIsStart] = useState(true);
+  const [isStart, setIsStart] = useState(false);
   return (
     <SplashContext.Provider value={{ isStart, setIsStart }}>
         {children}

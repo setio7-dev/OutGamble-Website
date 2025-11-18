@@ -59,11 +59,17 @@ export default function Welcome() {
       <SafeAreaView classNameParent={'bg-white rounded-b-[120px] w-full h-full'} paddingY={0} classNameChild={'flex-col justify-end h-full'}>
         <div className="w-full flex gap-6 flex-col">
           <AnimationDiv className="relative w-full" effect="fade-up">
+            {user?.fullname && (
+              <div className="absolute right-0 -top-4 animate-bounces">
+                <PrimaryButton Text={"Hai! " + user?.fullname} Rounded={10} Type="primary"/>
+              </div>
+            )}
+
             <img src={circle1} alt="" className="w-22 h-auto animate-autoRotates absolute left-14 -top-2" />
             <h1 className="font-poppins-semibold text-[42px] text-center">Memberdayakan Generasi <br />Cerdas untuk <span className="text-primary">Menjauhi Judi Online</span></h1>
             <img src={textLine} alt="" className="w-[46px] animate-rotates h-auto absolute right-28 bottom-0" />
           </AnimationDiv>
-          <div className="flex justify-between">
+          <div className="flex justify-between">            
             <AnimationDiv className="w-[380px] flex gap-2" effect="fade-right" delay={200}>
               <img src={kutip} alt="" className="w-6 h-6 -mt-4" />
               <div className="flex flex-col gap-6">

@@ -15,6 +15,7 @@ import Statistic from '../components/home/Statistic';
 import Education from '../components/home/Education';
 import Ask from '../components/home/Ask';
 import Footer from '../components/Footer';
+import SplashScreen from '../components/SplashScreen';
 
 export default function Home() {
     useEffect(() => {
@@ -22,6 +23,7 @@ export default function Home() {
     });
   return (
     <div>
+      <SplashScreen/>
       <Navbar/>
       <Welcome/>
       <Amount/>

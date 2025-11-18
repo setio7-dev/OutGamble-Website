@@ -1,14 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import { ModernAlert } from "../../ui/ModernAlert";
 import jsQR from "jsqr";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 export default function UseScanQRHook() {
   const [link, setLink] = useState<string>("");
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState<string>("");
   const [data, setData] = useState<any>(null);
+  const pathname = useLocation();
 
   const handleScan = async () => {
     try {
@@ -20,6 +23,7 @@ export default function UseScanQRHook() {
         }
 
         setLink(qrLink);
+
         const response = await axios.post(
           "https://pandutria-gambling-sites.hf.space/predict",
           { link: qrLink }
@@ -37,7 +41,8 @@ export default function UseScanQRHook() {
         return;
       }
 
-      localStorage.setItem("scan-qr", JSON.stringify(link));
+      localStorage.setItem("scan-qr", JSON.stringify({ link }));
+
       ModernAlert({
         status: "success",
         message: "Link Berhasil Disimpan",
@@ -45,7 +50,7 @@ export default function UseScanQRHook() {
         linkTo: "/result-scan-qr",
       });
     } catch {
-      ModernAlert({ status: "error", message: "Terjadi Kesalahan" });
+      ModernAlert({ status: "error", message: "AI Sedang Dinyalakan, Mohon Bersabar" });
     }
   };
 
@@ -87,17 +92,17 @@ export default function UseScanQRHook() {
       setPreview(URL.createObjectURL(file));
 
       decodeQR(file).then((qrLink) => {
-        if (qrLink) {
-          setLink(qrLink);
-        }
+        if (qrLink) setLink(qrLink);
       });
     }
   };
 
   const fetchScan = () => {
     const raw = localStorage.getItem("scan-qr");
-    if (!raw) return window.location.href = "/";
-    setData(JSON.parse(raw));
+    if (pathname.pathname === "/result-scan-qr") {
+      if (!raw) return (window.location.href = "/");
+      setData(JSON.parse(raw));
+    }
   };
 
   useEffect(() => {

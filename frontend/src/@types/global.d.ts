@@ -49,6 +49,11 @@ declare global {
         contact: string;
     }
 
+    interface linkProp {
+        link: string;
+        status: string;
+    }
+
     interface Window {
         MyCustomGLobal: () => void;
     }
