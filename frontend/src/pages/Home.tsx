@@ -39,6 +39,7 @@ export default function Home() {
       {isShow && (
         <>
           <Welcome />
+          <p className='text-white'>{isMobile ? "true" : "false"}</p>
           <Amount />
           <About />
           <Service />
