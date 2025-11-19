@@ -16,7 +16,7 @@ import { UseAuthHookContext } from "../../context/UseAuthContext";
 export default function Welcome() {
   const { showAuth, handleClose, handleOpen, handleChangePopup, thisPopup } = UseShowAuth();
   const { handleChange, handleLogin, handleRegister, username, fullname, password, handleLogout } = UseAuth();
-  const { user } = UseAuthHookContext();
+  const { user, isMobile } = UseAuthHookContext();
   return (
     <div className='flex justify-center items-center lg:h-screen h-auto bg-black overflow-y-hidden relative'>
       {showAuth && (
@@ -59,7 +59,7 @@ export default function Welcome() {
       <SafeAreaView classNameParent={'bg-white lg:rounded-b-[120px] rounded-none w-full h-full'} paddingY={0} classNameChild={'flex-col justify-end h-full'}>
         <div className="w-full flex lg:pt-0 pt-34 gap-6 flex-col">
           <AnimationDiv className="relative w-full" effect="fade-up">
-            {user?.fullname && (
+            {user?.fullname && !isMobile && (
               <div className="absolute right-0 -top-4 animate-bounces">
                 <PrimaryButton Text={"Hai! " + user?.fullname} Rounded={10} Type="primary"/>
               </div>
@@ -73,7 +73,7 @@ export default function Welcome() {
             <AnimationDiv className="lg:w-[380px] w-full flex gap-2" effect="fade-right" delay={200}>
               <img src={kutip} alt="" className="w-6 h-6 -mt-4 lg:block hidden" />
               <div className="flex flex-col lg:items-start items-center gap-6">
-                <p className="font-poppins-regular text-[14px] lg:text-justify text-center text-gray">Out Gamble hadir sebagai platform edukatif yang membantu pelajar dan masyarakat memahami bahaya judi online. Melalui informasi, tips, dan solusi digital yang interaktif, kami berkomitmen membangun generasi sadar dan bebas dari kecanduan judi.</p>
+                <p className="font-poppins-regular text-[14px] lg:text-justify text-center text-gray">{user?.fullname ? `Hai ${user?.fullname}!` : ""} Out Gamble hadir sebagai platform edukatif yang membantu pelajar dan masyarakat memahami bahaya judi online. Melalui informasi, tips, dan solusi digital yang interaktif, kami berkomitmen membangun generasi sadar dan bebas dari kecanduan judi.</p>
                 <PrimaryButton Type="primary" Text="Cari Tips & Saran" />
               </div>
             </AnimationDiv>
