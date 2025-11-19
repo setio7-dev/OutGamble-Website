@@ -6,6 +6,7 @@ import ScanBarcodeContent from "../components/scan/ScanBarcodeContent";
 import { UseSplashHookContext } from "../context/UseSplashContext";
 import { UseAuthHookContext } from "../context/UseAuthContext";
 import MobileNavbar from "../components/MobileNavbar";
+import ScrollToTop from "../utils/ScrollToTop";
 
 export default function ScanBarcode() {
   const { setIsStart } = UseSplashHookContext();
@@ -21,6 +22,7 @@ export default function ScanBarcode() {
 
   return (
     <div>
+      <ScrollToTop/>
       {isMobile ? <MobileNavbar/> : <Navbar />}
       <ScanBarcodeContent />
       <Footer />

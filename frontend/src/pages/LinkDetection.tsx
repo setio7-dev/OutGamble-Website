@@ -6,6 +6,7 @@ import LinkDetectionContent from '../components/link/LinkDetectionContent';
 import { UseSplashHookContext } from '../context/UseSplashContext';
 import { UseAuthHookContext } from '../context/UseAuthContext';
 import MobileNavbar from '../components/MobileNavbar';
+import ScrollToTop from '../utils/ScrollToTop';
 
 export default function LinkDetection() {
     const { setIsStart } = UseSplashHookContext();
@@ -20,6 +21,7 @@ export default function LinkDetection() {
     }, []);
     return (
         <div>
+            <ScrollToTop/>
             {isMobile ? <MobileNavbar/> : <Navbar />}
             <LinkDetectionContent />
             <Footer />

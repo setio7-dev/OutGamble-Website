@@ -19,6 +19,7 @@ import SplashScreen from '../components/SplashScreen';
 import { UseAuthHookContext } from '../context/UseAuthContext';
 import MobileNavbar from '../components/MobileNavbar';
 import { UseSplashHookContext } from '../context/UseSplashContext';
+import ScrollToTop from '../utils/ScrollToTop';
 
 export default function Home() {
   const { isMobile } = UseAuthHookContext();
@@ -37,7 +38,8 @@ export default function Home() {
       <SplashScreen />
       {isMobile ? <MobileNavbar /> : <Navbar />}
       {isShow && (
-        <>
+        <div className=''>
+          <ScrollToTop/>
           <Welcome />
           <Amount />
           <About />
@@ -52,7 +54,7 @@ export default function Home() {
           <Education />
           <Ask />
           <Footer />
-        </>
+        </div>
       )}
     </div>
   )

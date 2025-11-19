@@ -65,7 +65,7 @@ export default function Welcome() {
               </div>
             )}
 
-            <img src={circle1} alt="" className="lg:w-22 w-12 h-auto animate-autoRotates absolute lg:left-14 -left-10 lg:-top-2 -top-4" />
+            <img src={circle1} alt="" className="lg:w-22 w-12 h-auto animate-autoRotates absolute lg:left-14 -left-12 lg:-top-2 -top-4" />
             <h1 className="font-poppins-semibold lg:text-[42px] text-[26px] text-center">Memberdayakan Generasi <br className="lg:block hidden" />Cerdas untuk <span className="text-primary">Menjauhi Judi Online</span></h1>
             <img src={textLine} alt="" className="lg:w-[46px] w-6 animate-rotates h-auto absolute lg:right-28 -right-3 bottom-0" />
           </AnimationDiv>

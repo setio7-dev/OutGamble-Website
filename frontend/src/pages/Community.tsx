@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { UseSplashHookContext } from '../context/UseSplashContext';
 import { UseAuthHookContext } from '../context/UseAuthContext';
 import MobileNavbar from '../components/MobileNavbar';
+import ScrollToTop from '../utils/ScrollToTop';
 
 export default function Community() {
   const { setIsStart } = UseSplashHookContext();
@@ -20,6 +21,7 @@ export default function Community() {
   }, []);
   return (
     <div>
+      <ScrollToTop/>
       {isMobile ? <MobileNavbar/> : <Navbar/>}
       <CommunityContent/>
       <Footer/>
