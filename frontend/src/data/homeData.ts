@@ -353,12 +353,12 @@ const educationData = [
 const askData = [
     {
         id: 1,
-        title: "Apa Pengertian Judi Online?",
+        title: "Apa Pengertian Dari Judi Online?",
         text: "Judi online adalah kegiatan mempertaruhkan uang atau barang berharga melalui permainan berbasis internet dengan harapan mendapatkan keuntungan. Aktivitas ini mencakup berbagai bentuk seperti taruhan olahraga, kasino virtual, dan permainan kartu daring. Meskipun terlihat menghibur, judi online dapat menimbulkan risiko kecanduan dan kerugian finansial yang serius."
     },
     {
         id: 2,
-        title: "Cara Menghindari Judi Online",
+        title: "Cara Menghindari Diri Judi Online",
         text: "Untuk menghindari judi online, penting untuk membatasi akses ke situs atau aplikasi yang berisiko dan tidak mengunduh platform perjudian. Isi waktu luang dengan kegiatan positif seperti olahraga, membaca, atau belajar hal baru agar tidak tergoda bermain judi. Selain itu, perkuat kontrol diri dan mintalah dukungan keluarga atau teman jika mulai merasa ingin mencoba berjudi."
     },
     {
