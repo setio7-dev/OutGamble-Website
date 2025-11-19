@@ -4,9 +4,12 @@ import Navbar from "../components/Navbar";
 import AOS from 'aos';
 import ScanBarcodeContent from "../components/scan/ScanBarcodeContent";
 import { UseSplashHookContext } from "../context/UseSplashContext";
+import { UseAuthHookContext } from "../context/UseAuthContext";
+import MobileNavbar from "../components/MobileNavbar";
 
 export default function ScanBarcode() {
   const { setIsStart } = UseSplashHookContext();
+  const { isMobile } = UseAuthHookContext();
 
   useEffect(() => {
     setIsStart(true)
@@ -18,7 +21,7 @@ export default function ScanBarcode() {
 
   return (
     <div>
-      <Navbar />
+      {isMobile ? <MobileNavbar/> : <Navbar />}
       <ScanBarcodeContent />
       <Footer />
     </div>

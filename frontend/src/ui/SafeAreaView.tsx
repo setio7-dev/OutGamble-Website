@@ -11,7 +11,7 @@ type SafeAreaViewType = {
 export default function SafeAreaView({ children, classNameParent, classNameChild, paddingY = 64 }: SafeAreaViewType) {
   return (
     <div className={`flex justify-center items-center w-auto ${classNameParent}`} style={{paddingTop: `${paddingY}px`, paddingBottom: `${paddingY}px`}}>
-      <div className={`lg:w-280 w-full flex items-center h-full ${classNameChild}`}>
+      <div className={`lg:w-280 w-full flex items-center h-full lg:px-0 px-4 ${classNameChild}`}>
         {children}
       </div>
     </div>

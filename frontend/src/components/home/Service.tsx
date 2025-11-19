@@ -8,16 +8,16 @@ import { Link } from "react-router-dom";
 export default function Service() {
     return (
         <div className="w-full relative bg-primary" id="service">
-            <img src={circle} className="w-40 animate-autoRotates h-auto absolute -right-18 top-20" alt="" />
+            <img src={circle} className="lg:w-40 w-26 animate-autoRotates h-auto absolute -right-18 top-20" alt="" />
             <SafeAreaView classNameParent={"bg-linear-to-r from-[#005625] to-[#05B14F]"} classNameChild={"h-full relative flex-col justify-center items-start gap-6"}>
                 <AnimationDiv effect="fade-up" className="flex w-full flex-col gap-6">
                     <PrimaryButton Text="Layanan Kami" Type="secondary" />
                     <div className="flex flex-col gap-2">
-                        <h1 className="text-white font-poppins-bold text-[34px]">Perlindungan Digital untuk <br /> Internet yang Lebih Aman</h1>
-                        <p className="w-[600px] font-poppins-regular text-white text-[14px]">OutGamble menyediakan fitur cerdas untuk membantu masyarakat mendeteksi dan melaporkan aktivitas judi online secara cepat, mudah, dan aman.</p>
+                        <h1 className="text-white font-poppins-bold lg:text-[34px] text-[22px]">Perlindungan Digital untuk <br className="lg:block hidden" /> Internet yang Lebih Aman</h1>
+                        <p className="lg:w-[600px] w-full text-justify font-poppins-regular text-white lg:text-[14px] text-[12px]">OutGamble menyediakan fitur cerdas untuk membantu masyarakat mendeteksi dan melaporkan aktivitas judi online secara cepat, mudah, dan aman.</p>
                     </div>
                 </AnimationDiv>
-                <div className="flex justify-between w-full items-center mt-4 gap-6 cursor-pointer">
+                <div className="flex lg:flex-row flex-col lg:justify-between justify-center w-full items-center lg:mt-4 mt-8 gap-6 cursor-pointer">
                     {serviceData.map((item, index) => (
                         <Link to={item.link} key={index}>
                             <AnimationDiv effect="fade-up" delay={item.id * 300} className="bg-white hover:bg-primary duration-500 border-2 border-white group w-full rounded-lg p-6 flex flex-col gap-6">

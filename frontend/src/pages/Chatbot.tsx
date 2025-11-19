@@ -48,13 +48,13 @@ export default function Chatbot() {
                 <div className="flex flex-col gap-10 w-full">
                     {message.map((item, index) => (
                         <div className={`flex flex-col gap-4 w-full ${item.user == "bot" ? 'items-start' : 'items-end'}`} key={index}>
-                            <h1 className={`font-poppins-semibold text-[22px] ${item.user == "bot" ? 'text-primary' : 'text-white'}`}>Out Gamble Bot</h1>
+                            <h1 className={`font-poppins-semibold lg:text-[22px] text-[20px] ${item.user == "bot" ? 'text-primary' : 'text-white'}`}>Out Gamble Bot</h1>
                             {item.user == "user" ? (
                                 <div className="py-2 px-4 rounded-full bg-primary">
-                                    <p className='font-poppins-medium text-justify text-white text-[14px]'>{item.message}</p>
+                                    <p className='font-poppins-medium text-justify text-white lg:text-[14px] text-[12px]'>{item.message}</p>
                                 </div>
                             ) : (
-                                <p className='font-poppins-medium leading-7 text-justify text-white text-[14px]'>
+                                <p className='font-poppins-medium leading-7 text-justify text-white lg:text-[14px] text-[12px]'>
                                     <ReactMarkdown>
                                         {displayedText(item.message, index)}
                                     </ReactMarkdown>
@@ -72,20 +72,20 @@ export default function Chatbot() {
             </div>
             
         ) : (
-            <div className="flex flex-col w-full gap-10 justify-center items-center -mt-4">
-                <img src={logo} className='w-24 h-auto animate-bounces' alt="" />
+            <div className="flex flex-col w-full gap-10 justify-center items-center lg:-mt-4 mt-0">
+                <img src={logo} className='lg:w-24 w-18 h-auto animate-bounces' alt="" />
                 <AnimationDiv effect='fade-right' className="flex justify-between w-full">
                     <div className="flex flex-col gap-2">
-                        <h1 className='text-white font-poppins-semibold text-[32px]'>Hai, Teman <span className='text-primary'>OutGamble</span></h1>
-                        <h2 className='text-white font-poppins-semibold text-[32px]'>Ada yang bisa aku bantu hari ini?</h2>
-                        <p className='text-white font-poppins-medium text-[14px]'>Pilih salah satu pertanyaan di bawah atau langsung tulis pertanyaanmu untuk mulai ngobrol bareng OutGamble.</p>
+                        <h1 className='text-white font-poppins-semibold lg:text-[32px] text-[24px]'>Hai, Teman <span className='text-primary'>OutGamble</span></h1>
+                        <h2 className='text-white font-poppins-semibold lg:text-[32px] text-[18px]'>Ada yang bisa aku bantu hari ini?</h2>
+                        <p className='text-white font-poppins-medium lg:text-[14px] text-[12px]'>Pilih salah satu pertanyaan di bawah atau langsung tulis pertanyaanmu untuk mulai ngobrol bareng OutGamble.</p>
                     </div>
                     <div className=""></div>
                 </AnimationDiv>
-                <div className="flex justify-between items-center w-full gap-14">
+                <div className="flex justify-between items-center overflow-x-auto w-full gap-14">
                     {suggestionData.map((item, index) => (
                         <AnimationDiv effect='fade-up' delay={item.id * 200} key={index}>
-                            <div onClick={() => handleMessage(item.text)} className="bg-linear-to-r from-fourthtinary to-secondary p-4 rounded-lg flex flex-col gap-4 cursor-pointer w-full hover:scale-95 hover:opacity-60 duration-500">
+                            <div onClick={() => handleMessage(item.text)} className="bg-linear-to-r min-w-[260px] from-fourthtinary to-secondary p-4 rounded-lg flex flex-col gap-4 cursor-pointer w-full hover:scale-95 hover:opacity-60 duration-500">
                                 <img src={item.img} className='w-12 h-auto' alt="" />
                                 <h1 className='font-poppins-medium text-justify text-white text-[14px]'>{item.text}</h1>
                             </div>
@@ -112,7 +112,7 @@ export default function Chatbot() {
             </div>
             <div className="flex items-center gap-4">
                 <img onClick={startListening} src={mic} className='w-8 cursor-pointer hover:scale-95 hover:backdrop-opacity-95 duration-500 h-auto' alt="" />
-                <div onClick={() => handleMessage('')} className="bg-secondary w-16 h-12 hover:scale-95 hover:backdrop-opacity-95 duration-500 cursor-pointer group flex justify-center items-center rounded-lg">
+                <div onClick={() => handleMessage('')} className="bg-secondary lg:w-16 w-20 h-12 hover:scale-95 hover:backdrop-opacity-95 duration-500 cursor-pointer group flex justify-center items-center rounded-lg">
                     <img src={send} className='w-8 h-auto group-hover:-rotate-12 duration-500' alt="" />
                 </div>
             </div>

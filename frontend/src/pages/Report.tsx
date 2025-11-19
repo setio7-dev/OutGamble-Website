@@ -4,9 +4,12 @@ import AOS from "aos"
 import { useEffect } from 'react'
 import ReportContent from '../components/report/ReportContent';
 import { UseSplashHookContext } from '../context/UseSplashContext';
+import { UseAuthHookContext } from '../context/UseAuthContext';
+import MobileNavbar from '../components/MobileNavbar';
 
 export default function Report() {
   const { setIsStart } = UseSplashHookContext();
+  const { isMobile } = UseAuthHookContext();
 
   useEffect(() => {
     setIsStart(true)
@@ -17,7 +20,7 @@ export default function Report() {
   }, []);
   return (
     <div>
-      <Navbar />
+      {isMobile ? <MobileNavbar/> : <Navbar />}
       <ReportContent />
       <Footer />
     </div>

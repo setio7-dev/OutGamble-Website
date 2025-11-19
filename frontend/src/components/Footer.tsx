@@ -19,7 +19,7 @@ export default function Footer() {
             <p className="font-poppins-regular text-white text-[14px] text-justify">Membantu masyarakat memahami bahaya judi online serta memberikan edukasi dan dukungan untuk hidup yang lebih sehat dan bebas dari kecanduan digital.</p>
             <img src={icon} className="w-40 h-auto" alt="" />
           </div>
-          <div className="flex items-start justify-between w-full gap-2">
+          <div className="lg:flex hidden items-start justify-between w-full gap-2">
             <div className="flex flex-col gap-4">
               <h1 className="text-[18px] font-poppins-semibold text-white">Nomor Telepon</h1>
               <p className="text-[14px] font-poppins-regular text-white">+62 1297786651</p>

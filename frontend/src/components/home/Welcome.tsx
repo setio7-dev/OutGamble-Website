@@ -56,7 +56,7 @@ export default function Welcome() {
           </div>
         </div>
       )}
-      <SafeAreaView classNameParent={'bg-white lg:rounded-b-[120px] rounded-none w-full h-full'} paddingY={0} classNameChild={'flex-col justify-end h-full lg:px-0 px-4'}>
+      <SafeAreaView classNameParent={'bg-white lg:rounded-b-[120px] rounded-none w-full h-full'} paddingY={0} classNameChild={'flex-col justify-end h-full'}>
         <div className="w-full flex lg:pt-0 pt-34 gap-6 flex-col">
           <AnimationDiv className="relative w-full" effect="fade-up">
             {user?.fullname && (

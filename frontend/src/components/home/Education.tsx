@@ -6,11 +6,11 @@ import playBtn from "/image/home/education/playBtn.png";
 export default function Education() {
   return (
     <SafeAreaView classNameParent={"h-auto py-16"} classNameChild={"justify-center flex-col gap-14"}>
-        <AnimationDiv effect='fade-up' className="flex flex-col text-center gap-4 w-[960px]">
-            <h1 className="font-poppins-semibold text-white text-[38px]"><span className='text-primary'>Edukasi Judi Online:</span> Pahami, Hindari, dan Lawan</h1>
-            <p className="text-white font-poppins-regular text-[14px]">Tonton berbagai video singkat yang akan bantu kamu memahami lebih dalam tentang bahaya judi online! Dari dampaknya pada mental, cara pencegahan, sampai kisah nyata yang menginspirasi untuk berhenti berjudi.</p>
+        <AnimationDiv effect='fade-up' className="flex flex-col text-center gap-4 lg:w-[960px] w-full">
+            <h1 className="font-poppins-semibold text-white lg:text-[38px] text-[22px]"><span className='text-primary'>Edukasi Judi Online:</span> Pahami, Hindari, dan Lawan</h1>
+            <p className="text-white font-poppins-regular lg:text-[14px] text-[12px]">Tonton berbagai video singkat yang akan bantu kamu memahami lebih dalam tentang bahaya judi online! Dari dampaknya pada mental, cara pencegahan, sampai kisah nyata yang menginspirasi untuk berhenti berjudi.</p>
         </AnimationDiv>
-        <div className="grid grid-cols-3 gap-12 w-full">
+        <div className="grid lg:grid-cols-3 grid-cols-1 gap-12 w-full">
             {educationData.map((item, index) => (
                 <AnimationDiv effect='fade-up' delay={item.id * 200} className="bg-white p-4 rounded-2xl flex flex-col gap-4" key={index}>
                     <div className="w-full h-[190px] relative">

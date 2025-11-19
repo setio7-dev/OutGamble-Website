@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Amount from '../components/home/Amount';
 import Welcome from '../components/home/Welcome'
 import Navbar from '../components/Navbar'
@@ -18,35 +18,42 @@ import Footer from '../components/Footer';
 import SplashScreen from '../components/SplashScreen';
 import { UseAuthHookContext } from '../context/UseAuthContext';
 import MobileNavbar from '../components/MobileNavbar';
+import { UseSplashHookContext } from '../context/UseSplashContext';
 
 export default function Home() {
-  useEffect(() => {
-    AOS.init();
-  });
-
   const { isMobile } = UseAuthHookContext();
+  const { isStart } = UseSplashHookContext();
+  const [isShow, setIsShow] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (isStart) {
+      setIsShow(isStart);
+    }
+
+    AOS.init();
+  }, [isStart]);
   return (
     <div>
       <SplashScreen />
-      {isMobile ? (
-        <MobileNavbar/>
-      ) : (
-        <Navbar />
+      {isMobile ? <MobileNavbar /> : <Navbar />}
+      {isShow && (
+        <>
+          <Welcome />
+          <Amount />
+          <About />
+          <Service />
+          <Action />
+          <Community />
+          <Bot />
+          <Testimonial />
+          <Tips />
+          <News />
+          <Statistic />
+          <Education />
+          <Ask />
+          <Footer />
+        </>
       )}
-      <Welcome />
-      <Amount />
-      <About />
-      <Service />
-      <Action />
-      <Community />
-      <Bot />
-      <Testimonial />
-      <Tips />
-      <News />
-      <Statistic />
-      <Education />
-      <Ask />
-      <Footer />
     </div>
   )
 }

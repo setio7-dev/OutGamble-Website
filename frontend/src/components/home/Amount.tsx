@@ -6,7 +6,7 @@ export default function Amount() {
   const { visitor, campanye, article, user } = UseScrollAnimation();
   return (
     <AnimationDiv effect='fade-up'>
-      <SafeAreaView classNameParent={"mt-12"} classNameChild={"bg-gray-dark flex-row h-auto py-6 px-20 rounded-[50px] justify-between"}>
+      <SafeAreaView classNameParent={"lg:mt-12 mt-0 lg:px-0 px-4"} classNameChild={"bg-gray-dark lg:flex-row flex-col h-auto py-6 lg:px-20 px-5 lg:rounded-[50px] rounded-xl lg:justify-between justify-center lg:gap-0 gap-8"}>
         <div className="flex-col justify-center flex items-center text-center gap-2 cursor-pointer transition-all duration-300 hover:scale-[1.1] group">
           <h1 className='font-poppins-semibold text-[32px] text-white group-hover:text-primary transition-all duration-300'>{visitor.toLocaleString('id-ID')} <span className='text-primary'>+</span></h1>
           <p className='text-white font-poppins-regular text-[14px] group-hover:text-primary transition-all duration-300'>Pengunjung Teredukasi</p>

@@ -353,7 +353,7 @@ const educationData = [
 const askData = [
     {
         id: 1,
-        title: "Apa Itu Judi Online?",
+        title: "Apa Pengertian Judi Online?",
         text: "Judi online adalah kegiatan mempertaruhkan uang atau barang berharga melalui permainan berbasis internet dengan harapan mendapatkan keuntungan. Aktivitas ini mencakup berbagai bentuk seperti taruhan olahraga, kasino virtual, dan permainan kartu daring. Meskipun terlihat menghibur, judi online dapat menimbulkan risiko kecanduan dan kerugian finansial yang serius."
     },
     {

@@ -81,7 +81,7 @@ export default function ModernInput({ placeholder, type = "input", typeInput = "
                             <h1 className="font-poppins-medium text-[18px] text-black">
                                 Tarik file Anda atau <span className="text-primary">Jelajahi</span>
                             </h1>
-                            <p className="text-[14px] text-[#6D6D6D] font-poppins-regular">Ukuran maksimal file 10 MB diperbolehkan</p>
+                            <p className="text-[14px] text-[#6D6D6D] text-center font-poppins-regular">Ukuran maksimal file 10 MB diperbolehkan</p>
 
                             {preview && <img src={preview} className="w-40 h-40 object-cover rounded-md border" />}
                         </div>
@@ -117,7 +117,7 @@ export default function ModernInput({ placeholder, type = "input", typeInput = "
                         <h1 className="font-poppins-medium text-[18px] text-white">
                             Tarik file Anda atau <span className="text-primary">Jelajahi</span>
                         </h1>
-                        <p className="text-[14px] text-[#A9A9A9] font-poppins-regular">Ukuran maksimal file 10 MB diperbolehkan</p>
+                        <p className="text-[14px] text-[#A9A9A9] text-center font-poppins-regular">Ukuran maksimal file 10 MB diperbolehkan</p>
 
                         {preview && <img src={preview} className="w-40 h-40 object-cover rounded-md border" />}
                     </div>

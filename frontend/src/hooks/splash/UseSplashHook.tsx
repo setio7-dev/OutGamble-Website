@@ -15,7 +15,7 @@ export default function UseSplashHook() {
         }
 
         handleSplashAnimaton();
-    }, []);
+    }, [isPlay, setIsStart]);
 
     return { isPlay }
 }

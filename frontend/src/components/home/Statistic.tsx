@@ -11,9 +11,9 @@ export default function Statistic() {
     const [selectedYear, setSelectedYear] = useState<string>("2020");
     return (
         <SafeAreaView classNameParent={"h-auto py-16"} classNameChild={"justify-center flex-col gap-14"}>
-            <AnimationDiv effect="fade-up" className="flex flex-col w-[900px] items-center gap-4 text-center">
-                <h1 className="font-poppins-semibold text-white text-[38px]">Insight Kasus <span className="text-primary">Judi Online</span> Tahunan</h1>
-                <p className="text-white font-poppins-regular text-[14px]">Dengan mengumpulkan data tahunan, kita dapat melihat tren peningkatan atau penurunan kasus keterlibatan judi online dari tahun ke tahun. Informasi ini penting untuk membantu pihak berwenang, lembaga pendidikan, dan masyarakat dalam menentukan strategi pencegahan, edukasi digital, serta rehabilitasi bagi korban kecanduan.</p>
+            <AnimationDiv effect="fade-up" className="flex flex-col lg:w-[900px] w-full items-center gap-4 text-center">
+                <h1 className="font-poppins-semibold text-white lg:text-[38px] text-[24px]">Insight Kasus <span className="text-primary">Judi Online</span> Tahunan</h1>
+                <p className="text-white font-poppins-regular lg:text-[14px] text-[12px]">Dengan mengumpulkan data tahunan, kita dapat melihat tren peningkatan atau penurunan kasus keterlibatan judi online dari tahun ke tahun. Informasi ini penting untuk membantu pihak berwenang, lembaga pendidikan, dan masyarakat dalam menentukan strategi pencegahan, edukasi digital, serta rehabilitasi bagi korban kecanduan.</p>
             </AnimationDiv>
             <AnimationDiv  effect="fade-up" delay={300} className="flex flex-col w-full px-5 py-6 bg-[#006034] rounded-[12.5px] mt-5">
                 <div className="flex lg:flex-row md:flex-row flex-col justify-between">
